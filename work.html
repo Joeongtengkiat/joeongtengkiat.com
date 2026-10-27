@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission log — Joe Ong Teng Kiat</title>
+<meta name="description" content="A project or hackathon by Joe Ong Teng Kiat.">
+<meta name="theme-color" content="#0D0618">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D0618'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23F4D3E0'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='4' fill='none' stroke='%23C474B4' stroke-width='2' transform='rotate(-18 16 16)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0D0618;--panel:#170A26;--text:#F4D3E0;--soft:#D9BFD2;--muted:#A88BB0;--line:#4A3357;--faint:#6A4F78;
+  --accent:#C474B4;--accent-hi:#E39AD3;--teal:#4FD1C5;--green:#5BE38A;--blue:#6FB6FF;--yellow:#FFD449;--orange:#FFB15C;
+  --mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--display:'Rubik Mono One',var(--mono);
+  --c:var(--green);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--mono)}
+a{color:var(--text)}a:hover{color:var(--accent-hi)}
+pre{margin:0;font-family:var(--mono)}
+
+.bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.nebula{opacity:.32}
+.neb{position:absolute;border-radius:50%;animation:drift 38s ease-in-out infinite alternate}
+.neb-a{background-image:radial-gradient(circle,#7D3884 36%,transparent 46%);background-size:8px 8px;-webkit-mask-image:radial-gradient(ellipse at 45% 50%,#000 0,rgba(0,0,0,.55) 30%,rgba(0,0,0,.15) 55%,transparent 70%);mask-image:radial-gradient(ellipse at 45% 50%,#000 0,rgba(0,0,0,.55) 30%,rgba(0,0,0,.15) 55%,transparent 70%)}
+.neb-b{background-image:radial-gradient(circle,#C474B4 34%,transparent 46%);background-size:6px 6px;-webkit-mask-image:radial-gradient(ellipse at 55% 45%,rgba(0,0,0,.85) 0,rgba(0,0,0,.35) 30%,transparent 62%);mask-image:radial-gradient(ellipse at 55% 45%,rgba(0,0,0,.85) 0,rgba(0,0,0,.35) 30%,transparent 62%)}
+.neb-d{background-image:radial-gradient(circle,#470C4F 40%,transparent 48%);background-size:10px 10px;-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 0,rgba(0,0,0,.5) 40%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 50%,#000 0,rgba(0,0,0,.5) 40%,transparent 70%)}
+@keyframes drift{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(40px,-24px) rotate(8deg)}}
+.star{position:absolute;line-height:1}
+.tw{display:inline-block;animation:twinkle 3.5s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.15}}
+
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:0 24px}
+.topbar{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:24px 0 8px}
+.logo{font-family:var(--display);font-size:18px;letter-spacing:1px;text-decoration:none;padding:10px 0}
+.logo span{color:var(--accent)}
+.back{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 16px;border:1px dashed var(--text);text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;transition:background .15s,color .15s}
+.back:hover,.back:focus-visible{background:var(--text);color:var(--bg)}
+
+.band{margin:24px -24px 0;background:var(--c);color:#1A0726;font-size:11px;letter-spacing:4px;padding:6px 24px;white-space:nowrap;overflow:hidden}
+.hero{padding:40px 0 8px;display:flex;flex-direction:column;gap:14px}
+.path{font-size:13px;color:var(--teal)}.path span{color:var(--text)}
+.crater{font-size:12px;letter-spacing:3px;color:var(--c)}
+h1{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(34px,6vw,64px);line-height:1;letter-spacing:-1px}
+.event{margin:0;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.oneliner{margin:0;max-width:680px;font-size:18px;line-height:1.6;color:var(--soft)}
+.result{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:var(--yellow);color:#1A0726;font-size:12px;letter-spacing:3px;font-weight:700}
+
+.links{display:flex;flex-wrap:wrap;gap:10px;padding:10px 0 4px}
+.link{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:12px 18px;border:1px solid var(--c);text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;transition:background .15s,color .15s}
+.link:first-child{background:var(--c);color:#1A0726}
+.link:hover,.link:focus-visible{background:var(--text);color:var(--bg);border-color:var(--text)}
+.nolinks{margin:0;padding:14px 16px;border:1px dashed var(--line);font-size:13px;color:var(--muted)}
+
+figure{margin:28px 0 0}
+.frame{position:relative;padding:14px;border:2px dashed var(--c);background:rgba(13,6,24,.72)}
+.frame::before,.frame::after{content:'';position:absolute;width:18px;height:18px;border:2px solid var(--c)}
+.frame::before{top:-6px;left:-6px;border-right:none;border-bottom:none}
+.frame::after{bottom:-6px;right:-6px;border-left:none;border-top:none}
+.frame img{display:block;width:100%;height:auto;background:#fff}
+.frame .art{overflow-x:auto;padding:22px 10px;font-size:clamp(9px,1.6vw,15px);line-height:1.35;color:var(--c);white-space:pre;
+  background-image:radial-gradient(circle,rgba(244,211,224,.06) 1px,transparent 1.3px);background-size:6px 6px}
+figcaption{margin-top:12px;font-size:12px;letter-spacing:1px;line-height:1.6;color:var(--muted)}
+figcaption::before{content:'▸ ';color:var(--c)}
+
+.section{padding:44px 0 0;display:flex;flex-direction:column;gap:16px}
+.section h2{margin:0;font-size:12px;font-weight:400;letter-spacing:3px;color:var(--c)}
+.section h2::before{content:'// '}
+.section p{margin:0;max-width:760px;font-size:15px;line-height:1.85;color:var(--soft)}
+.how{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;max-width:760px}
+.how li{position:relative;padding:14px 16px 14px 46px;border:1px solid var(--line);background:rgba(23,10,38,.7);font-size:14px;line-height:1.7;color:var(--soft)}
+.how li::before{content:attr(data-n);position:absolute;left:14px;top:14px;font-size:12px;color:var(--c)}
+.stack{display:flex;flex-wrap:wrap;gap:10px}
+.stack span{padding:8px 12px;border:1px solid var(--text);font-size:13px}
+
+.pager{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;padding:56px 0 0}
+.pager a{display:flex;flex-direction:column;gap:6px;padding:16px 18px;border:1px dashed var(--line);text-decoration:none;transition:border-color .15s,background .15s}
+.pager a:hover,.pager a:focus-visible{border-color:var(--text);background:rgba(23,10,38,.8);color:var(--text)}
+.pager small{font-size:11px;letter-spacing:2px;color:var(--muted)}
+.pager strong{font-family:var(--display);font-weight:400;font-size:16px}
+.pager .next{text-align:right}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:48px 0 28px;font-size:11px;letter-spacing:2px;color:var(--muted)}
+
+.lost{padding:120px 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
+.lost pre{color:var(--teal);font-size:14px;line-height:1.2}
+
+@media (prefers-reduced-motion:reduce){.tw,.neb{animation:none}}
+</style>
+</head>
+<body>
+<div class="bg nebula" aria-hidden="true">
+  <div class="neb neb-d" style="left:-12%;top:-20%;width:70%;height:120%"></div>
+  <div class="neb neb-a" style="left:40%;top:-10%;width:75%;height:110%;animation-delay:-12s"></div>
+  <div class="neb neb-b" style="left:60%;top:40%;width:50%;height:80%;animation-delay:-20s;animation-duration:46s"></div>
+</div>
+<div class="bg" id="stars" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header class="topbar">
+    <a class="logo" href="/">JOE.OTK<span>*</span></a>
+    <a class="back" id="back" href="/#orbit">← Back to orbit</a>
+  </header>
+  <main id="main"></main>
+  <footer>
+    <span>01001010 01001111 01000101</span>
+    <span>© 2026 · joeongtengkiat.com</span>
+  </footer>
+</div>
+
+<script src="/work.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // stars
+  var host = document.getElementById('stars'), chars = ['·', '·', '.', '+', '*'], cols = ['#F4D3E0', '#FFFFFF', '#E39AD3', '#4FD1C5', '#FFB15C'];
+  for (var i = 0; i < 110; i++) {
+    var s = document.createElement('span'), t = document.createElement('span');
+    s.className = 'star';
+    s.style.cssText = 'top:' + (Math.random() * 100).toFixed(2) + '%;left:' + (Math.random() * 100).toFixed(2) + '%;opacity:' +
+      (0.35 + Math.random() * 0.6).toFixed(2) + ';font-size:' + Math.round(8 + Math.random() * 11) + 'px;color:' + cols[Math.floor(Math.random() * cols.length)];
+    t.className = 'tw';
+    t.style.animationDelay = (Math.random() * 6).toFixed(2) + 's';
+    t.textContent = chars[Math.floor(Math.random() * chars.length)];
+    s.appendChild(t); host.appendChild(s);
+  }
+
+  function esc(v) {
+    return String(v).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
+  }
+
+  // which entry? /work/<slug>  or  work.html?p=<slug>
+  var slug = new URLSearchParams(location.search).get('p');
+  if (!slug) {
+    var m = location.pathname.match(/\/work\/([^\/?#]+)/);
+    slug = m ? decodeURIComponent(m[1]) : '';
+  }
+  var all = window.WORK || [];
+  var item = all.filter(function (w) { return w.slug === slug; })[0];
+  var main = document.getElementById('main');
+
+  if (!item) {
+    document.title = 'Lost in space — Joe Ong Teng Kiat';
+    main.innerHTML = '<div class="lost"><pre aria-hidden="true">   .  *   o  .\n  *   \\o/   .\n .     |   *\n   +  / \\    .</pre>' +
+      '<h1>Lost in space</h1><p class="oneliner">That mission doesn\'t exist (yet).</p>' +
+      '<a class="back" href="/#orbit">← Back to orbit</a></div>';
+    return;
+  }
+
+  var isHack = item.kind === 'hackathon';
+  var color = isHack ? 'var(--blue)' : 'var(--green)';
+  var panel = isHack ? 'hack' : 'projects';
+  document.documentElement.style.setProperty('--c', color);
+  document.title = item.title + ' — Joe Ong Teng Kiat';
+  var desc = document.querySelector('meta[name="description"]');
+  if (desc) desc.setAttribute('content', item.oneLiner);
+  document.getElementById('back').setAttribute('href', '/#orbit/' + panel);
+  document.getElementById('back').textContent = '← Back to ' + (isHack ? 'hackathons' : 'projects');
+
+  var h = '';
+  h += '<div class="band" aria-hidden="true">01001010 01001111 01000101 ✕ 01001111 01001110 01000111 ✕ 01001010 01001111 01000101 ✕ 01001111 01001110 01000111 ✕ 01001010 01001111 01000101</div>';
+  h += '<section class="hero">';
+  h += '<span class="path">joe@orbit:~/' + (isHack ? 'hackathons' : 'projects') + '/' + esc(item.slug) + '$ <span>cat mission.log</span></span>';
+  h += '<span class="crater">● CRATER ' + esc(item.crater) + ' · ' + esc(item.meta) + '</span>';
+  h += '<h1>' + esc(item.title) + '</h1>';
+  if (item.event) h += '<p class="event">' + esc(item.event) + '</p>';
+  h += '<p class="oneliner">' + esc(item.oneLiner) + '</p>';
+  if (item.result) h += '<span class="result">★ ' + esc(item.result) + '</span>';
+  h += '</section>';
+
+  if (item.links && item.links.length) {
+    h += '<nav class="links" aria-label="Links">';
+    item.links.forEach(function (l) {
+      h += '<a class="link" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label) + ' <span aria-hidden="true">↗</span></a>';
+    });
+    h += '</nav>';
+  } else if (item.noLinks) {
+    h += '<p class="nolinks">' + esc(item.noLinks) + '</p>';
+  }
+
+  var imgs = item.images || [];
+  if (imgs.length) {
+    var first = imgs[0];
+    h += '<figure><div class="frame"><img src="' + esc(first.src) + '" alt="' + esc(first.alt) + '" loading="eager"></div>' +
+      (first.caption ? '<figcaption>' + esc(first.caption) + '</figcaption>' : '') + '</figure>';
+  } else if (item.ascii) {
+    h += '<figure><div class="frame"><pre class="art" role="img" aria-label="ASCII sketch of ' + esc(item.title) + '">' +
+      esc(item.ascii.replace(/^\n/, '')) + '</pre></div><figcaption>Rough sketch, drawn in ASCII.</figcaption></figure>';
+  }
+
+  h += '<section class="section"><h2>MISSION BRIEF</h2>';
+  (item.summary || []).forEach(function (p) { h += '<p>' + esc(p) + '</p>'; });
+  h += '</section>';
+
+  if (item.how && item.how.length) {
+    h += '<section class="section"><h2>HOW IT WORKS</h2><ol class="how">';
+    item.how.forEach(function (p, i) { h += '<li data-n="0' + (i + 1) + '">' + esc(p) + '</li>'; });
+    h += '</ol></section>';
+  }
+
+  imgs.slice(1).forEach(function (im) {
+    h += '<figure><div class="frame"><img src="' + esc(im.src) + '" alt="' + esc(im.alt) + '" loading="lazy"></div>' +
+      (im.caption ? '<figcaption>' + esc(im.caption) + '</figcaption>' : '') + '</figure>';
+  });
+
+  if (item.stack && item.stack.length) {
+    h += '<section class="section"><h2>BUILT WITH</h2><div class="stack">';
+    item.stack.forEach(function (s) { h += '<span>' + esc(s) + '</span>'; });
+    h += '</div></section>';
+  }
+
+  // previous / next within the same kind
+  var same = all.filter(function (w) { return w.kind === item.kind; });
+  var idx = same.indexOf(item);
+  if (same.length > 1) {
+    var prev = same[(idx - 1 + same.length) % same.length], next = same[(idx + 1) % same.length];
+    h += '<nav class="pager" aria-label="More ' + (isHack ? 'hackathons' : 'projects') + '">' +
+      '<a href="/work/' + esc(prev.slug) + '"><small>← PREVIOUS MISSION</small><strong>' + esc(prev.title) + '</strong></a>' +
+      '<a class="next" href="/work/' + esc(next.slug) + '"><small>NEXT MISSION →</small><strong>' + esc(next.title) + '</strong></a></nav>';
+  }
+
+  main.innerHTML = h;
+})();
+</script>
+</body>
+</html>
