@@ -39,7 +39,7 @@ window.WORK = [
    ~ x * ~ # @ ~ :   .  O     : ~ $ & % ~ { } ~
          *         \  o    .  /         .
      .        +     '-.____.-'    *          +
-                  [ PLANET OTK-29 ]`
+               [ JOE ONG TENG KIAT ]`
   },
   {
     slug: 'sportsbash26',

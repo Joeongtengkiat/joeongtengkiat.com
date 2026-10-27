@@ -48,7 +48,7 @@ pre{margin:0;font-family:var(--mono)}
   transition:transform 1.9s cubic-bezier(.2,.7,.1,1) .55s,opacity 1.4s ease .6s,filter 1.6s ease .6s}
 .topbar,.foot{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:24px 24px 8px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
 .foot{padding:8px 24px 20px;gap:12px;font-size:11px;letter-spacing:2px;color:var(--muted)}
-.logo{background:transparent;border:none;color:var(--text);cursor:pointer;padding:10px 0;font-family:var(--display);font-size:18px;letter-spacing:1px}
+.logo{background:transparent;border:none;color:var(--text);cursor:pointer;padding:10px 0;font-family:var(--display);font-size:clamp(13px,1.4vw,18px);letter-spacing:1px;text-align:left}
 .logo:hover{color:var(--accent-hi)}
 .logo span{color:var(--accent)}
 .navlinks{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -217,7 +217,7 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
   <!-- the orbit view -->
   <div class="scene" id="scene" style="opacity:0;transform:translateY(45vh) scale(0.9);filter:blur(10px);pointer-events:none">
     <header class="topbar">
-      <button class="logo" id="logo" type="button" aria-label="Back to intro">JOE.OTK<span>*</span></button>
+      <button class="logo" id="logo" type="button" aria-label="Back to intro">JOE ONG TENG KIAT<span>*</span></button>
       <nav class="navlinks" aria-label="Links">
         <button class="btn" type="button" data-open="contact">Book a session</button>
       </nav>
