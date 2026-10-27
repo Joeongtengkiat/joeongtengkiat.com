@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joe Ong Teng Kiat</title>
+<meta name="description" content="Joe Ong Teng Kiat — Data Science & AI undergraduate at NTU, building AI automation and data projects.">
+<meta property="og:title" content="Joe Ong Teng Kiat">
+<meta property="og:description" content="Data Science & AI undergraduate at NTU, building AI automation and data projects.">
+<meta property="og:url" content="https://joeongtengkiat.com">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316222B'/%3E%3Crect x='7' y='18' width='4' height='7' fill='%23F2B632'/%3E%3Crect x='14' y='12' width='4' height='13' fill='%23F2F3EE'/%3E%3Crect x='21' y='7' width='4' height='18' fill='%234F6EF0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F2F3EE;
+    --ink: #16222B;
+    --muted: #5E6B70;
+    --rule: #D3D8D0;
+    --cobalt: #2C4FD8;
+    --marigold: #F2B632;
+    --bar: #16222B;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #121A20;
+      --ink: #E9ECE6;
+      --muted: #97A3A6;
+      --rule: #2A363D;
+      --cobalt: #7F98FF;
+      --marigold: #F2B632;
+      --bar: #E9ECE6;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Schibsted Grotesk", system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  a { color: inherit; text-decoration-color: var(--cobalt); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  a:hover { color: var(--cobalt); }
+  :focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  nav .mark { font-weight: 800; text-decoration: none; letter-spacing: -0.01em; }
+  nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; font-size: 0.95rem; }
+  nav ul a { text-decoration: none; color: var(--muted); }
+  nav ul a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 56px;
+    align-items: end;
+    padding: 72px 0 88px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero h1 {
+    font-size: clamp(3.2rem, 8.4vw, 6.6rem);
+    line-height: 0.92;
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    margin: 0 0 28px;
+  }
+  .hero h1 span { display: block; color: var(--muted); font-weight: 800; }
+  .hero p.lede { font-size: 1.25rem; max-width: 34ch; margin: 0 0 28px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--ink);
+  }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn.primary:hover { background: var(--cobalt); border-color: var(--cobalt); color: #fff; }
+  .btn:not(.primary):hover { border-color: var(--cobalt); }
+
+  /* Sort figure */
+  figure.sort { margin: 0; }
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 300px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .bars div {
+    flex: 1;
+    background: var(--bar);
+    border-radius: 2px 2px 0 0;
+    transition: background-color 160ms;
+  }
+  .bars div.hot { background: var(--cobalt); }
+  .bars div.done { background: var(--marigold); }
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 16px;
+    margin-top: 14px;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  figcaption button {
+    flex-shrink: 0;
+    font: inherit;
+    font-weight: 600;
+    color: var(--ink);
+    background: none;
+    border: 0;
+    padding: 0;
+    text-decoration: underline;
+    text-decoration-color: var(--cobalt);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  figcaption button:disabled { color: var(--muted); cursor: default; text-decoration-color: var(--rule); }
+
+  /* Sections */
+  section { padding: 80px 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: 0; }
+  .sec { display: grid; grid-template-columns: 240px 1fr; gap: 40px; }
+  h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; line-height: 1.15; }
+  .about p { font-size: 1.3rem; line-height: 1.5; margin: 0 0 18px; max-width: 40ch; }
+  .about p + p { font-size: 1.0625rem; color: var(--muted); max-width: 60ch; }
+
+  /* Experience timeline */
+  ol.timeline { list-style: none; margin: 0; padding: 0; }
+  ol.timeline li {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 0 0 36px;
+  }
+  ol.timeline li:last-child { padding-bottom: 0; }
+  .when { color: var(--muted); font-size: 0.95rem; padding-top: 3px; }
+  h3 { font-size: 1.2rem; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .org { color: var(--muted); margin: 0 0 10px; }
+  .desc { margin: 0; max-width: 62ch; }
+
+  /* Projects */
+  .projects { display: grid; gap: 0; }
+  .project { padding: 26px 0; border-top: 1px solid var(--rule); }
+  .project:first-child { border-top: 0; padding-top: 0; }
+  .project h3 { font-size: 1.35rem; }
+  .project .ctx { color: var(--muted); margin: 0 0 10px; font-size: 0.95rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+  .tags li {
+    font-size: 0.85rem;
+    padding: 3px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--muted);
+  }
+
+  /* Contact */
+  .contact .big {
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    letter-spacing: -0.035em;
+    line-height: 1;
+    margin: 0 0 24px;
+    font-weight: 900;
+  }
+  .contact ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 0.9rem; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 48px; padding: 40px 0 64px; }
+    .bars { height: 200px; }
+    .sec { grid-template-columns: 1fr; gap: 24px; }
+    section { padding: 60px 0; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    nav ul { gap: 14px; font-size: 0.9rem; }
+    nav ul li.opt { display: none; }
+    ol.timeline li { grid-template-columns: 1fr; gap: 4px; }
+    .about p { font-size: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <a class="mark" href="#top">Joe Ong</a>
+    <ul>
+      <li class="opt"><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <h1>Joe Ong <span>Teng Kiat</span></h1>
+      <p class="lede">Data Science &amp; AI student at NTU, building AI automation for a real e-commerce business.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <figure class="sort" aria-label="Animated bar chart being sorted by a hybrid merge and insertion sort">
+      <div class="bars" id="bars" aria-hidden="true"></div>
+      <figcaption>
+        <span id="sortNote">Hybrid merge sort that hands short runs to insertion sort, from my SC2001 algorithms project.</span>
+        <button type="button" id="resort">Shuffle and sort</button>
+      </figcaption>
+    </figure>
+  </header>
+
+  <section id="about" class="about">
+    <div class="sec">
+      <h2>About</h2>
+      <div>
+        <p>I like turning messy, repetitive work into systems that run on their own.</p>
+        <p>I'm a second-year Bachelor of Data Science and Artificial Intelligence student at Nanyang Technological University, graduating in 2029. Outside class I intern at Nook Theory, where I build AI-driven automation for their Amazon storefront, and I help run events for the NTU Sports Club.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec">
+      <h2>Experience</h2>
+      <ol class="timeline">
+        <li>
+          <div class="when">Aug 2026 – now</div>
+          <div>
+            <h3>AI Intern</h3>
+            <p class="org">Nook Theory, Amazon seller</p>
+            <p class="desc">Automating business workflows with AI for a brand selling home, travel and lifestyle products. Building a recurring listing audit that benchmarks listings against competitors and flags which ones convert well enough to put ad spend behind.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2026</div>
+          <div>
+            <h3>Organiser, SportsBash26</h3>
+            <p class="org">NTU Sports Club</p>
+            <p class="desc">Organised the club's annual ball, "A Never Ending Summer", including the event website and sign-ups for freshies, seniors, alumni and guests.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2025 – 2029</div>
+          <div>
+            <h3>BSc Data Science &amp; Artificial Intelligence</h3>
+            <p class="org">Nanyang Technological University</p>
+            <p class="desc">Coursework includes algorithm design and analysis, and database systems.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec">
+      <h2>Projects</h2>
+      <div class="projects">
+        <article class="project">
+          <h3>Plot-level EUDR compliance screening</h3>
+          <p class="ctx">SystemEarth Hack &amp; Hire challenge, team project</p>
+          <p class="desc">Designing a compact, query-efficient way to represent geospatial layers so individual farm plots can be screened against the EU Deforestation Regulation. Our showcase case is natural rubber supply chains.</p>
+          <ul class="tags"><li>Geospatial data</li><li>Python</li><li>Compliance</li></ul>
+        </article>
+        <article class="project">
+          <h3>Automated Amazon listing audit</h3>
+          <p class="ctx">Nook Theory</p>
+          <p class="desc">A recurring audit that compares each product listing with competitors, checks conversion, and recommends copy and image fixes, so the ads team only pushes listings that are ready.</p>
+          <ul class="tags"><li>LLM automation</li><li>E-commerce</li><li>Data analysis</li></ul>
+        </article>
+        <article class="project">
+          <h3>Hybrid merge–insertion sort</h3>
+          <p class="ctx">SC2001 Algorithm Design &amp; Analysis</p>
+          <p class="desc">Implemented and benchmarked a merge sort that switches to insertion sort below a threshold, measuring how the threshold affects key comparisons and runtime. The chart at the top of this page runs it.</p>
+          <ul class="tags"><li>Java</li><li>Algorithms</li><li>Benchmarking</li></ul>
+        </article>
+        <article class="project">
+          <h3>Relational database design</h3>
+          <p class="ctx">SC2207 Introduction to Databases, team project</p>
+          <p class="desc">Modelled a business domain from requirements to an ER diagram, documented assumptions, and normalised the schema to 3NF.</p>
+          <ul class="tags"><li>SQL</li><li>ER modelling</li><li>Normalisation</li></ul>
+        </article>
+        <article class="project">
+          <h3>SportsBash26 event site</h3>
+          <p class="ctx">NTU Sports Club</p>
+          <p class="desc">A summer-themed site for the club ball with a photo gallery of the featured couples and links to three separate sign-up forms.</p>
+          <ul class="tags"><li>Web</li><li>Design</li><li>Events</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="sec">
+      <h2>Contact</h2>
+      <div>
+        <p class="big">Let's build something useful.</p>
+        <ul>
+          <!-- TODO: replace with your real details -->
+          <li><a class="btn primary" href="mailto:hello@joeongtengkiat.com">Email me</a></li>
+          <li><a class="btn" href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
+          <li><a class="btn" href="https://github.com/" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Joe Ong Teng Kiat</footer>
+</div>
+
+<script>
+(function () {
+  const N = 32, THRESHOLD = 6, STEP_MS = 22;
+  const barsEl = document.getElementById('bars');
+  const btn = document.getElementById('resort');
+  const note = document.getElementById('sortNote');
+  const baseNote = note.textContent;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let bars = [], timer = null;
+
+  for (let i = 0; i < N; i++) {
+    const d = document.createElement('div');
+    barsEl.appendChild(d);
+    bars.push(d);
+  }
+
+  function shuffled() {
+    const a = Array.from({ length: N }, (_, i) => i + 1);
+    for (let i = N - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function hybridSortOps(a) {
+    const ops = [];
+    function insertion(lo, hi) {
+      for (let i = lo + 1; i <= hi; i++) {
+        const v = a[i];
+        let j = i - 1;
+        while (j >= lo && a[j] > v) { a[j + 1] = a[j]; ops.push([j + 1, a[j]]); j--; }
+        a[j + 1] = v; ops.push([j + 1, v]);
+      }
+    }
+    function sort(lo, hi) {
+      if (hi - lo + 1 <= THRESHOLD) { insertion(lo, hi); return; }
+      const mid = (lo + hi) >> 1;
+      sort(lo, mid); sort(mid + 1, hi);
+      const L = a.slice(lo, mid + 1), R = a.slice(mid + 1, hi + 1);
+      let i = 0, j = 0, k = lo;
+      while (i < L.length && j < R.length) { a[k] = L[i] <= R[j] ? L[i++] : R[j++]; ops.push([k, a[k]]); k++; }
+      while (i < L.length) { a[k] = L[i++]; ops.push([k, a[k]]); k++; }
+      while (j < R.length) { a[k] = R[j++]; ops.push([k, a[k]]); k++; }
+    }
+    sort(0, a.length - 1);
+    return ops;
+  }
+
+  function draw(a) {
+    a.forEach((v, i) => { bars[i].style.height = (v / N * 100) + '%'; });
+  }
+
+  function run() {
+    clearTimeout(timer);
+    bars.forEach(b => b.className = '');
+    const start = shuffled();
+    if (reduce) {
+      draw(start.slice().sort((x, y) => x - y));
+      return;
+    }
+    draw(start);
+    const ops = hybridSortOps(start.slice());
+    btn.disabled = true;
+    note.textContent = baseNote;
+    let k = 0, last = null;
+    (function tick() {
+      if (last !== null) bars[last].classList.remove('hot');
+      if (k >= ops.length) {
+        bars.forEach((b, i) => setTimeout(() => b.classList.add('done'), i * 14));
+        note.textContent = 'Sorted ' + N + ' values in ' + ops.length + ' array writes.';
+        btn.disabled = false;
+        return;
+      }
+      const [idx, val] = ops[k++];
+      bars[idx].style.height = (val / N * 100) + '%';
+      bars[idx].classList.add('hot');
+      last = idx;
+      timer = setTimeout(tick, STEP_MS);
+    })();
+  }
+
+  btn.addEventListener('click', run);
+  draw(shuffled());
+  timer = setTimeout(run, reduce ? 0 : 700);
+})();
+</script>
+</body>
+</html>
