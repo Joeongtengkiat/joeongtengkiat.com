@@ -9,6 +9,9 @@
  *   ascii     fallback hero drawing when there are no images
  *   links     [{ label, url }]          -> buttons on the page (repo, live site, model...)
  *   noLinks   text shown when there are no links
+ *   award     hackathons only: 'gold' | 'silver' | 'bronze' (sparkly outline) or 'finalist' (purple outline).
+ *             Leave it out if there was no placing — the card stays plain blue.
+ *   result    the badge text, e.g. '1ST PLACE · 13 TEAMS' or 'FINALIST · TOP 10'
  */
 window.WORK = [
   /* ------------------------------ PROJECTS ------------------------------ */
@@ -191,6 +194,7 @@ window.WORK = [
     meta: 'HACK & HIRE · 2026',
     event: 'SystemEarth Hack & Hire 2026',
     result: '1ST PLACE · 13 TEAMS',
+    award: 'gold',
     oneLiner: 'Fast, faithful EU deforestation checks for rubber plots, straight from satellite layers.',
     summary: [
       'The EU Deforestation Regulation (EUDR) says a farm plot passes if its land wasn\'t forest on 31 December 2020, or if that forest hasn\'t been cleared since. Checking that means reading about 20 satellite layers from 2000 to 2026.',

@@ -163,7 +163,13 @@ a.card{text-decoration:none;color:inherit;transition:transform .15s,box-shadow .
 a.card.stencil,a.card.solid{color:var(--text)}
 a.card:hover,a.card:focus-visible{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--c);color:inherit}
 a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
-.card .badge{align-self:flex-start;padding:4px 8px;background:var(--yellow);color:#1A0726;font-size:11px;letter-spacing:2px;font-weight:700}
+.card .badge{align-self:flex-start;padding:4px 8px;background:var(--c);color:#1A0726;font-size:11px;letter-spacing:2px;font-weight:700}
+a.card.award{position:relative;overflow:hidden;border:2px solid var(--c)}
+a.card.award-gold,a.card.award-silver,a.card.award-bronze{box-shadow:0 0 22px -6px var(--c),inset 0 0 18px -10px var(--c)}
+a.card.award-gold::after,a.card.award-silver::after,a.card.award-bronze::after{content:'';position:absolute;top:-60%;left:-70%;width:45%;height:220%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);transform:rotate(18deg);animation:sheen 4.2s ease-in-out infinite;pointer-events:none}
+@keyframes sheen{0%{left:-70%}55%,100%{left:140%}}
+a.card.award-finalist{box-shadow:0 0 16px -8px var(--c)}
+.spark{position:absolute;color:var(--c);font-size:18px;line-height:1;text-shadow:0 0 8px var(--c);animation:twinkle 2.6s ease-in-out infinite;pointer-events:none}
 .card .go{margin-top:4px;font-size:11px;letter-spacing:3px;font-weight:700}
 .card.inked .go{color:#1F7A45}
 .card.stencil .go,.card.solid .go{color:var(--c)}
@@ -183,6 +189,45 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
 .term .pr{color:var(--teal)}
 .term a{padding:8px 0}
 .cursor{background:var(--text);color:var(--bg)}
+.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.social{display:flex;align-items:center;gap:12px;min-height:56px;padding:12px 16px;border:1px solid var(--teal);text-decoration:none;transition:background .15s,color .15s,transform .15s,box-shadow .15s}
+.social:hover,.social:focus-visible{background:var(--teal);color:#0D0618;transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--accent)}
+.s-k{font-size:11px;letter-spacing:3px;color:var(--teal)}
+.social:hover .s-k,.social:focus-visible .s-k{color:#0D0618}
+.s-v{font-size:14px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s-go{margin-left:auto;font-size:16px}
+.tx{margin-top:6px;border:2px dashed var(--text);padding:20px;display:flex;flex-direction:column;gap:18px;background:rgba(13,6,24,.55)}
+.tx-head{display:flex;justify-content:space-between;font-size:12px;letter-spacing:3px;color:var(--accent-hi)}
+.tx-dots{color:var(--faint)}
+.tx-to{margin:0;padding:0;border:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.tx-to legend,.tx-field>span{padding:0;margin-bottom:8px;font-size:11px;letter-spacing:3px;color:var(--orange)}
+.to-opt{position:relative;cursor:pointer}
+.to-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.to-card{display:flex;flex-direction:column;gap:4px;padding:12px 14px 12px 36px;border:1px solid var(--line);background:#0D0618;transition:border-color .15s,background .15s;position:relative}
+.to-card::before{content:'';position:absolute;left:12px;top:15px;width:12px;height:12px;border:1px solid var(--muted);border-radius:50%}
+.to-k{font-size:11px;letter-spacing:3px;color:var(--muted)}
+.to-v{font-size:13px;word-break:break-all}
+.to-opt input:checked + .to-card{border-color:var(--teal);background:rgba(79,209,197,.08)}
+.to-opt input:checked + .to-card::before{border-color:var(--teal);background:var(--teal);box-shadow:0 0 0 3px #0D0618 inset}
+.to-opt input:checked + .to-card .to-k{color:var(--teal)}
+.to-opt input:focus-visible + .to-card{outline:2px solid var(--text);outline-offset:2px}
+.tx-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tx-field{display:flex;flex-direction:column}
+.tx-lab{display:flex;justify-content:space-between}
+.tx-lab em{font-style:normal;color:var(--muted)}
+.tx-field input,.tx-field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);background:#0D0618;color:var(--text);font-family:var(--mono);font-size:14px;border-radius:0;transition:border-color .15s}
+.tx-field textarea{resize:vertical;min-height:130px;line-height:1.6}
+.tx-field input::placeholder,.tx-field textarea::placeholder{color:#7A6488}
+.tx-field input:focus,.tx-field textarea:focus{outline:none;border-color:var(--teal)}
+.tx-field input[aria-invalid="true"],.tx-field textarea[aria-invalid="true"]{border-color:#FF6B78}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.tx-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.tx-send{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;border:1px solid var(--accent);background:var(--accent);color:#1A0726;font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s}
+.tx-send:hover,.tx-send:focus-visible{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--teal)}
+.tx-send[disabled]{opacity:.6;cursor:progress;transform:none;box-shadow:none}
+.tx-alt{font-size:12px;letter-spacing:1px;color:var(--muted)}
+.tx-status{margin:0;min-height:1.4em;font-size:13px;color:var(--muted)}
+.tx-status.ok{color:var(--green)}.tx-status.err{color:#FF6B78}
 
 /* no transitions on first paint, so the intro doesn't flash the orbit view */
 .preload .scene,.preload .intro{transition:none!important}
@@ -194,7 +239,7 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
   body{overflow:auto}
 }
 @media (prefers-reduced-motion:reduce){
-  .tw,.reticle,.neb,.astro,.float,.flame,.bounce,.wobble{animation:none}
+  .tw,.reticle,.neb,.astro,.float,.flame,.bounce,.wobble,.spark,a.card.award::after{animation:none}
   .bubble,.surface,.depth{display:none}
   .scene,.intro{transition:opacity .3s}
   .drawer,.backdrop{transition:none}
@@ -219,7 +264,7 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
     <header class="topbar">
       <button class="logo" id="logo" type="button" aria-label="Back to intro">JOE ONG TENG KIAT<span>*</span></button>
       <nav class="navlinks" aria-label="Links">
-        <button class="btn" type="button" data-open="contact">Book a session</button>
+        <button class="btn" type="button" data-open="contact">Contact me here!</button>
       </nav>
     </header>
 
@@ -344,13 +389,49 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
       </section>
 
       <!-- CONTACT -->
-      <section class="panel term" data-panel="contact" hidden>
-        <p><span class="pr">joe@orbit:~$</span> ./book --walk-ins-welcome</p>
-        <a href="mailto:joeong2004@gmail.com">&gt; email ......... joeong2004@gmail.com</a>
-        <a href="mailto:JONG194@e.ntu.edu.sg">&gt; ntu mail ...... JONG194@e.ntu.edu.sg</a>
-        <a href="https://www.linkedin.com/in/joe-ong-teng-kiat-989b27404/" target="_blank" rel="noopener">&gt; linkedin ...... /joe-ong-teng-kiat</a>
-        <a href="https://github.com/Joeongtengkiat" target="_blank" rel="noopener">&gt; github ........ /Joeongtengkiat</a>
-        <p style="color:var(--muted)"><span class="pr">joe@orbit:~$</span> <span class="cursor">_</span></p>
+      <section class="panel" data-panel="contact" hidden>
+        <p class="lede"><span style="color:var(--teal)">joe@orbit:~$</span> ./open-channel — find me here, or send a transmission straight to my inbox.</p>
+
+        <div class="socials">
+          <a class="social" href="https://github.com/Joeongtengkiat" target="_blank" rel="noopener">
+            <span class="s-k">GITHUB</span><span class="s-v">/Joeongtengkiat</span><span class="s-go" aria-hidden="true">↗</span>
+          </a>
+          <a class="social" href="https://www.linkedin.com/in/joe-ong-teng-kiat-989b27404/" target="_blank" rel="noopener">
+            <span class="s-k">LINKEDIN</span><span class="s-v">/joe-ong-teng-kiat</span><span class="s-go" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <form class="tx" id="txForm" novalidate>
+          <div class="tx-head"><span>✉ SEND A TRANSMISSION</span><span class="tx-dots" aria-hidden="true">· · ·</span></div>
+
+          <fieldset class="tx-to">
+            <legend>DELIVER TO</legend>
+            <label class="to-opt">
+              <input type="radio" name="to" value="joeong2004@gmail.com" checked>
+              <span class="to-card"><span class="to-k">PERSONAL</span><span class="to-v">joeong2004@gmail.com</span></span>
+            </label>
+            <label class="to-opt">
+              <input type="radio" name="to" value="JONG194@e.ntu.edu.sg">
+              <span class="to-card"><span class="to-k">NTU</span><span class="to-v">JONG194@e.ntu.edu.sg</span></span>
+            </label>
+          </fieldset>
+
+          <div class="tx-row">
+            <label class="tx-field"><span>NAME</span><input type="text" name="name" autocomplete="name" placeholder="Your name" required maxlength="80"></label>
+            <label class="tx-field"><span>YOUR EMAIL</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com" required maxlength="120"></label>
+          </div>
+          <label class="tx-field">
+            <span class="tx-lab">MESSAGE <em id="txCount" aria-live="polite">500</em></span>
+            <textarea name="message" rows="6" maxlength="500" placeholder="Tell me a little about what you have in mind..." required></textarea>
+          </label>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="tx-actions">
+            <button class="tx-send" type="submit"><span aria-hidden="true">▶</span> <span id="txLabel">Transmit</span></button>
+            <a class="tx-alt" id="txMailto" href="mailto:joeong2004@gmail.com">or open in your email app ↗</a>
+          </div>
+          <p class="tx-status" id="txStatus" role="status" aria-live="polite"></p>
+        </form>
       </section>
     </div>
   </aside>
@@ -389,7 +470,7 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
     hack:     { label: 'hackathons',     hint: 'blue station',  title: 'Hackathons',        path: '~/hackathons',  kind: 'station', color: '#6FB6FF' },
     certs:    { label: 'certifications', hint: 'orchid world',  title: 'Certifications',    path: '~/certs',       kind: 'orchid',  color: '#D88BCB' },
     exp:      { label: 'experience',     hint: 'the rocket',    title: 'Experience',        path: '~/experience',  kind: 'rocket',  color: '#FFD449' },
-    contact:  { label: 'contact',        hint: '',              title: 'Book a session',    path: '~/contact',     kind: '',        color: '#4FD1C5' }
+    contact:  { label: 'contact',        hint: '',              title: 'Contact me here!',  path: '~/contact',     kind: '',        color: '#4FD1C5' }
   };
   var ORDER = ['about', 'projects', 'hack', 'certs', 'exp'];
 
@@ -607,16 +688,23 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
       var host = $('cards-' + w.kind);
       if (!host) return;
       var a = document.createElement('a');
-      var c = w.kind === 'hackathon' ? 'var(--blue)' : 'var(--green)';
-      a.className = 'card ' + w.style;
+      var MEDAL = { gold: '#FFD449', silver: '#DDE3EE', bronze: '#E8955A', finalist: '#B07CFF' };
+      var c = MEDAL[w.award] || (w.kind === 'hackathon' ? 'var(--blue)' : 'var(--green)');
+      a.className = 'card ' + w.style + (w.award ? ' award award-' + w.award : '');
       a.href = '/work/' + w.slug;
       a.style.setProperty('--c', c);
       a.innerHTML =
         '<span class="tag" style="color:' + (w.style === 'inked' ? '#1F7A45' : c) + '">● CRATER ' + esc(w.crater) + (w.event ? ' · ' + esc(w.meta) : '') + '</span>' +
-        (w.result ? '<span class="badge">★ ' + esc(w.result) + '</span>' : '') +
+        (w.result ? '<span class="badge">' + (w.award === 'finalist' ? '◆ ' : '★ ') + esc(w.result) + '</span>' : '') +
         '<h3>' + esc(w.title) + '</h3><p>' + esc(w.oneLiner) + '</p>' +
         (w.event ? '' : '<span class="meta">' + esc(w.meta) + '</span>') +
-        '<span class="go">OPEN MISSION LOG →</span>';
+        '<span class="go">OPEN MISSION LOG →</span>' +
+        (w.award && w.award !== 'finalist'
+          ? '<span class="spark" style="top:10px;right:14px" aria-hidden="true">✦</span>' +
+            '<span class="spark" style="top:34px;right:42px;font-size:12px;animation-delay:.8s" aria-hidden="true">✦</span>' +
+            '<span class="spark" style="bottom:12px;right:22px;font-size:14px;animation-delay:1.5s" aria-hidden="true">✦</span>' +
+            '<span class="spark" style="bottom:44px;left:6px;font-size:11px;animation-delay:2.1s" aria-hidden="true">✦</span>'
+          : '');
       host.appendChild(a);
     });
   })();
@@ -658,6 +746,59 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
   });
   $('dClose').addEventListener('click', closePanel);
   backdrop.addEventListener('click', closePanel);
+
+  // ---------- contact form ----------
+  // Sends through FormSubmit (formsubmit.co) to whichever address is picked.
+  (function contactForm() {
+    var form = $('txForm');
+    if (!form) return;
+    var status = $('txStatus'), label = $('txLabel'), count = $('txCount'), mailto = $('txMailto');
+    var msg = form.elements.message, sendBtn = form.querySelector('.tx-send');
+    function to() { return form.querySelector('input[name="to"]:checked').value; }
+    function refreshMailto() {
+      var body = msg.value ? '?subject=' + encodeURIComponent('Hello from joeongtengkiat.com') + '&body=' + encodeURIComponent(msg.value) : '';
+      mailto.href = 'mailto:' + to() + body;
+    }
+    function say(text, cls) { status.textContent = text; status.className = 'tx-status' + (cls ? ' ' + cls : ''); }
+    msg.addEventListener('input', function () { count.textContent = 500 - msg.value.length; refreshMailto(); });
+    form.addEventListener('input', function (e) { if (e.target.removeAttribute) e.target.removeAttribute('aria-invalid'); });
+    Array.prototype.forEach.call(form.elements.to, function (r) { r.addEventListener('change', refreshMailto); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = form.elements.name, email = form.elements.email, bad = null;
+      [name, email, msg].forEach(function (f) { f.removeAttribute('aria-invalid'); });
+      if (!name.value.trim()) bad = bad || name;
+      if (!email.value.trim() || !email.checkValidity()) bad = bad || email;
+      if (!msg.value.trim()) bad = bad || msg;
+      if (bad) {
+        bad.setAttribute('aria-invalid', 'true'); bad.focus();
+        say(bad === email ? '> that email doesn\'t look right.' : '> fill in your name, email and a message first.', 'err');
+        return;
+      }
+      if (form.elements._honey.value) return;
+      sendBtn.disabled = true; label.textContent = 'Transmitting...'; say('> establishing uplink...');
+      fetch('https://formsubmit.co/ajax/' + encodeURIComponent(to()), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: name.value.trim(), email: email.value.trim(), message: msg.value.trim(),
+          _subject: 'New message from joeongtengkiat.com — ' + name.value.trim(),
+          _template: 'table', _captcha: 'false'
+        })
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (res.ok && String(res.d.success) === 'true') {
+            say('> transmission received. I\'ll get back to you soon ✓', 'ok');
+            form.reset(); count.textContent = '500'; refreshMailto();
+          } else {
+            say('> couldn\'t send that one. Try the email-app link instead.', 'err');
+          }
+        })
+        .catch(function () { say('> no signal — try the email-app link instead.', 'err'); })
+        .then(function () { sendBtn.disabled = false; label.textContent = 'Transmit'; });
+    });
+  })();
 
   // ---------- intro -> orbit (the dive) ----------
   var scene = $('scene'), intro = $('intro'), dive = $('dive');
