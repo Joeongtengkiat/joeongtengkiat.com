@@ -3,412 +3,772 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Joe Ong Teng Kiat</title>
-<meta name="description" content="Joe Ong Teng Kiat — Data Science & AI undergraduate at NTU, building AI automation and data projects.">
-<meta property="og:title" content="Joe Ong Teng Kiat">
-<meta property="og:description" content="Data Science & AI undergraduate at NTU, building AI automation and data projects.">
+<title>Joe Ong Teng Kiat — Ink &amp; Orbit</title>
+<meta name="description" content="Joe Ong Teng Kiat — Year 2 Data Science & Artificial Intelligence at NTU. Projects, hackathons and experience, orbiting an ASCII planet.">
+<meta property="og:title" content="Joe Ong Teng Kiat — Ink & Orbit">
+<meta property="og:description" content="Year 2 Data Science & Artificial Intelligence at NTU. I build things, ink them in ASCII, and launch them into orbit.">
 <meta property="og:url" content="https://joeongtengkiat.com">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316222B'/%3E%3Crect x='7' y='18' width='4' height='7' fill='%23F2B632'/%3E%3Crect x='14' y='12' width='4' height='13' fill='%23F2F3EE'/%3E%3Crect x='21' y='7' width='4' height='18' fill='%234F6EF0'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0D0618">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230D0618'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23F4D3E0'/%3E%3Cellipse cx='16' cy='16' rx='13' ry='4' fill='none' stroke='%23C474B4' stroke-width='2' transform='rotate(-18 16 16)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --paper: #F2F3EE;
-    --ink: #16222B;
-    --muted: #5E6B70;
-    --rule: #D3D8D0;
-    --cobalt: #2C4FD8;
-    --marigold: #F2B632;
-    --bar: #16222B;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #121A20;
-      --ink: #E9ECE6;
-      --muted: #97A3A6;
-      --rule: #2A363D;
-      --cobalt: #7F98FF;
-      --marigold: #F2B632;
-      --bar: #E9ECE6;
-    }
-  }
+:root{
+  --bg:#0D0618;--panel:#170A26;--text:#F4D3E0;--soft:#D9BFD2;--muted:#A88BB0;--line:#4A3357;--faint:#6A4F78;
+  --accent:#C474B4;--accent-hi:#E39AD3;--teal:#4FD1C5;--green:#5BE38A;--blue:#6FB6FF;--yellow:#FFD449;--orange:#FFB15C;--orchid:#D88BCB;
+  --mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--display:'Rubik Mono One',var(--mono);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:var(--mono)}
+body{overflow:hidden}
+a{color:var(--text)}a:hover{color:var(--accent-hi)}
+button{font-family:inherit}
+pre{margin:0;font-family:var(--mono)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Schibsted Grotesk", system-ui, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.55;
-  }
-  a { color: inherit; text-decoration-color: var(--cobalt); text-decoration-thickness: 2px; text-underline-offset: 3px; }
-  a:hover { color: var(--cobalt); }
-  :focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; border-radius: 2px; }
+.root{position:relative;min-height:100vh;min-height:100dvh;overflow:hidden;display:flex;flex-direction:column}
 
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+/* ---------- background ---------- */
+.bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.nebula{opacity:.4}
+.neb{position:absolute;border-radius:50%;animation:drift 38s ease-in-out infinite alternate}
+.neb-a{background-image:radial-gradient(circle,#7D3884 36%,transparent 46%);background-size:8px 8px;-webkit-mask-image:radial-gradient(ellipse at 45% 50%,#000 0,rgba(0,0,0,.55) 30%,rgba(0,0,0,.15) 55%,transparent 70%);mask-image:radial-gradient(ellipse at 45% 50%,#000 0,rgba(0,0,0,.55) 30%,rgba(0,0,0,.15) 55%,transparent 70%)}
+.neb-b{background-image:radial-gradient(circle,#C474B4 34%,transparent 46%);background-size:6px 6px;-webkit-mask-image:radial-gradient(ellipse at 55% 45%,rgba(0,0,0,.85) 0,rgba(0,0,0,.35) 30%,transparent 62%);mask-image:radial-gradient(ellipse at 55% 45%,rgba(0,0,0,.85) 0,rgba(0,0,0,.35) 30%,transparent 62%)}
+.neb-c{background-image:radial-gradient(circle,#F4D3E0 30%,transparent 44%);background-size:5px 5px;-webkit-mask-image:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.7) 0,rgba(0,0,0,.2) 28%,transparent 50%);mask-image:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.7) 0,rgba(0,0,0,.2) 28%,transparent 50%)}
+.neb-d{background-image:radial-gradient(circle,#470C4F 40%,transparent 48%);background-size:10px 10px;-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 0,rgba(0,0,0,.5) 40%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 50%,#000 0,rgba(0,0,0,.5) 40%,transparent 70%)}
+@keyframes drift{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(40px,-24px) rotate(8deg)}}
+.star{position:absolute;line-height:1}
+.tw{display:inline-block;animation:twinkle 3.5s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.15}}
+.hstar{position:absolute;border-radius:50%;background-image:radial-gradient(circle,#F4D3E0 40%,transparent 48%);background-size:4px 4px;-webkit-mask-image:radial-gradient(circle,#000 0,rgba(0,0,0,.6) 30%,transparent 70%);mask-image:radial-gradient(circle,#000 0,rgba(0,0,0,.6) 30%,transparent 70%)}
 
-  /* Nav */
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
-  nav .mark { font-weight: 800; text-decoration: none; letter-spacing: -0.01em; }
-  nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; font-size: 0.95rem; }
-  nav ul a { text-decoration: none; color: var(--muted); }
-  nav ul a:hover { color: var(--ink); }
+/* ---------- scene ---------- */
+.scene{position:relative;flex:1;width:100%;display:flex;flex-direction:column;transform-origin:50% 50%;
+  transition:transform 1.9s cubic-bezier(.2,.7,.1,1) .55s,opacity 1.4s ease .6s,filter 1.6s ease .6s}
+.topbar,.foot{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:24px 24px 8px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.foot{padding:8px 24px 20px;gap:12px;font-size:11px;letter-spacing:2px;color:var(--muted)}
+.logo{background:transparent;border:none;color:var(--text);cursor:pointer;padding:10px 0;font-family:var(--display);font-size:18px;letter-spacing:1px}
+.logo:hover{color:var(--accent-hi)}
+.logo span{color:var(--accent)}
+.navlinks{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.navlinks a{padding:12px 14px;font-size:13px;text-decoration:none;text-transform:uppercase;letter-spacing:2px}
+.btn{background:transparent;color:var(--text);cursor:pointer;border:1px dashed var(--text);padding:12px 16px;font-size:13px;text-transform:uppercase;letter-spacing:2px;transition:background .15s,color .15s}
+.btn:hover,.btn:focus-visible{background:var(--text);color:var(--bg)}
+.stage{position:relative;flex:1;width:100%;max-width:1280px;margin:0 auto;padding:8px 24px 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
 
-  /* Hero */
-  .hero {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 56px;
-    align-items: end;
-    padding: 72px 0 88px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .hero h1 {
-    font-size: clamp(3.2rem, 8.4vw, 6.6rem);
-    line-height: 0.92;
-    font-weight: 900;
-    letter-spacing: -0.045em;
-    margin: 0 0 28px;
-  }
-  .hero h1 span { display: block; color: var(--muted); font-weight: 800; }
-  .hero p.lede { font-size: 1.25rem; max-width: 34ch; margin: 0 0 28px; }
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-block;
-    padding: 12px 20px;
-    border-radius: 999px;
-    font-weight: 600;
-    text-decoration: none;
-    border: 2px solid var(--ink);
-  }
-  .btn.primary { background: var(--ink); color: var(--paper); }
-  .btn.primary:hover { background: var(--cobalt); border-color: var(--cobalt); color: #fff; }
-  .btn:not(.primary):hover { border-color: var(--cobalt); }
+.art{position:relative;z-index:1}
+.ascii{font-family:var(--mono);font-size:clamp(5px,min(1.05vw,1.75vh),15px);line-height:1.224;white-space:pre;letter-spacing:0;pointer-events:none}
+.layer{position:absolute;top:0;left:0}
+.spacer{position:relative;visibility:hidden}
+.halo{position:absolute;left:15%;top:1.4%;width:70%;height:97.2%;border-radius:50%;z-index:0;pointer-events:none;background-image:radial-gradient(circle,rgba(196,116,180,.95) 38%,transparent 44%);background-size:7px 7px;opacity:.3;-webkit-mask-image:radial-gradient(circle,transparent 46%,#000 52%,rgba(0,0,0,.4) 62%,transparent 71%);mask-image:radial-gradient(circle,transparent 46%,#000 52%,rgba(0,0,0,.4) 62%,transparent 71%)}
+.occluder{position:absolute;left:25%;top:15.28%;width:50%;height:69.44%;border-radius:50%;background:var(--bg);z-index:3;pointer-events:none}
 
-  /* Sort figure */
-  figure.sort { margin: 0; }
-  .bars {
-    display: flex;
-    align-items: flex-end;
-    gap: 3px;
-    height: 300px;
-    padding-bottom: 2px;
-    border-bottom: 2px solid var(--ink);
-  }
-  .bars div {
-    flex: 1;
-    background: var(--bar);
-    border-radius: 2px 2px 0 0;
-    transition: background-color 160ms;
-  }
-  .bars div.hot { background: var(--cobalt); }
-  .bars div.done { background: var(--marigold); }
-  figcaption {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    gap: 16px;
-    margin-top: 14px;
-    font-size: 0.9rem;
-    color: var(--muted);
-  }
-  figcaption button {
-    flex-shrink: 0;
-    font: inherit;
-    font-weight: 600;
-    color: var(--ink);
-    background: none;
-    border: 0;
-    padding: 0;
-    text-decoration: underline;
-    text-decoration-color: var(--cobalt);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
-    cursor: pointer;
-  }
-  figcaption button:disabled { color: var(--muted); cursor: default; text-decoration-color: var(--rule); }
+/* satellites */
+.sat{position:absolute;display:flex;flex-direction:column;align-items:center;gap:6px;border:none;padding:6px;background:transparent;color:var(--text);cursor:pointer;transform:translate(-50%,-50%)}
+.sat:focus-visible{outline:2px solid var(--text);outline-offset:4px}
+.sat-icon{position:relative;display:flex;align-items:center;justify-content:center;width:72px;height:64px}
+.sat-label{font-size:12px;padding:5px 9px;letter-spacing:1px;white-space:nowrap;border:1px solid var(--c);background:var(--bg);color:var(--text)}
+.sat.hot .sat-label{background:var(--c);color:var(--bg)}
+.reticle{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border:2px dashed var(--c);border-radius:50%;display:none;animation:spin 6s linear infinite}
+.sat.hot .reticle{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hs{display:block;border-radius:50%;background-size:4px 4px;-webkit-mask-image:radial-gradient(circle at 35% 35%,#000 35%,rgba(0,0,0,.55) 56%,transparent 71%);mask-image:radial-gradient(circle at 35% 35%,#000 35%,rgba(0,0,0,.55) 56%,transparent 71%)}
+.hs-green{background-image:radial-gradient(circle,#5BE38A 40%,transparent 47%)}
+.hs-orchid{background-image:radial-gradient(circle,#D88BCB 40%,transparent 47%)}
+.mini-ring{position:absolute;left:50%;top:50%;width:74px;height:18px;margin:-9px 0 0 -37px;border:2px dashed var(--text);border-radius:50%;transform:rotate(-16deg)}
+.astro{font-size:9px;line-height:1.05;color:var(--text);animation:spin 9s linear infinite;transform-origin:50% 50%}
+.float{display:block;animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.flame{animation:flicker .35s steps(2) infinite}
+@keyframes flicker{0%{opacity:1}100%{opacity:.35}}
 
-  /* Sections */
-  section { padding: 80px 0; border-bottom: 1px solid var(--rule); }
-  section:last-of-type { border-bottom: 0; }
-  .sec { display: grid; grid-template-columns: 240px 1fr; gap: 40px; }
-  h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; line-height: 1.15; }
-  .about p { font-size: 1.3rem; line-height: 1.5; margin: 0 0 18px; max-width: 40ch; }
-  .about p + p { font-size: 1.0625rem; color: var(--muted); max-width: 60ch; }
+/* phone star map */
+.starmap{display:none;flex-direction:column;gap:2px;width:100%;max-width:420px;border-top:1px dashed var(--line);padding-top:10px}
+.starmap p{margin:0 0 4px;font-size:11px;letter-spacing:2px;color:var(--muted)}
+.mi{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:6px 12px;border:none;background:transparent;color:var(--text);cursor:pointer;text-align:left;transition:background .15s,color .15s}
+.mi:hover,.mi:focus-visible{background:var(--text);color:var(--bg)}
+.mi .dot{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.mi .num{font-size:11px;color:var(--muted)}
+.mi .lbl{font-size:14px;font-weight:700;letter-spacing:1px}
+.mi .hint{margin-left:auto;font-size:11px;color:var(--muted)}
+.mi:hover .hint,.mi:hover .num{color:var(--line)}
 
-  /* Experience timeline */
-  ol.timeline { list-style: none; margin: 0; padding: 0; }
-  ol.timeline li {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 24px;
-    padding: 0 0 36px;
-  }
-  ol.timeline li:last-child { padding-bottom: 0; }
-  .when { color: var(--muted); font-size: 0.95rem; padding-top: 3px; }
-  h3 { font-size: 1.2rem; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
-  .org { color: var(--muted); margin: 0 0 10px; }
-  .desc { margin: 0; max-width: 62ch; }
+/* ---------- intro ---------- */
+.intro{position:fixed;inset:0;z-index:40;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;
+  transition:transform 1.5s cubic-bezier(.5,0,.3,1),opacity 1.1s ease .2s,filter 1.2s ease}
+.intro .rocket{display:block;text-align:left}
+.intro .rocket pre{font-size:16px;line-height:1.05}
+.boot{margin:0;font-size:13px;letter-spacing:2px;color:var(--teal)}
+.hello{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(40px,7vw,96px);line-height:.95;letter-spacing:-2px}
+.hello span{color:var(--accent)}
+.degree{margin:0;font-size:clamp(12px,1.3vw,15px);letter-spacing:3px;text-transform:uppercase;color:var(--teal)}
+.tagline{margin:0;max-width:520px;font-size:16px;line-height:1.7;color:var(--soft)}
+.launch{margin-top:12px;min-height:48px;padding:12px 22px;display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:3px}
+.bounce{display:inline-block;animation:bob 1.6s ease-in-out infinite}
+.intro .bin{position:absolute;bottom:20px;left:0;right:0;margin:0;font-size:11px;letter-spacing:3px;color:var(--faint)}
 
-  /* Projects */
-  .projects { display: grid; gap: 0; }
-  .project { padding: 26px 0; border-top: 1px solid var(--rule); }
-  .project:first-child { border-top: 0; padding-top: 0; }
-  .project h3 { font-size: 1.35rem; }
-  .project .ctx { color: var(--muted); margin: 0 0 10px; font-size: 0.95rem; }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
-  .tags li {
-    font-size: 0.85rem;
-    padding: 3px 10px;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    color: var(--muted);
-  }
+/* ---------- dive transition ---------- */
+.dive{position:fixed;inset:0;z-index:45;pointer-events:none;overflow:hidden}
+.depth{position:absolute;inset:0;background:#05020C;opacity:0;animation:depth 2.3s ease forwards}
+@keyframes depth{0%{opacity:0}40%{opacity:.7}100%{opacity:0}}
+.surface{position:absolute;left:-10%;right:-10%;top:100%;overflow:hidden;animation:surface 1.7s cubic-bezier(.45,0,.55,1) .1s forwards}
+@keyframes surface{0%{transform:translateY(0);opacity:1}55%{opacity:1}100%{transform:translateY(-190vh);opacity:0}}
+.wobble{animation:wobble 2.4s ease-in-out infinite alternate}
+@keyframes wobble{0%{transform:translateX(-30px)}100%{transform:translateX(30px)}}
+.dust{font-size:16px;line-height:1.6;white-space:pre}
+.cloud{height:42vh;background-image:radial-gradient(circle,#C474B4 36%,transparent 46%),radial-gradient(circle,#7D3884 40%,transparent 48%);background-size:7px 7px,11px 11px;background-position:0 0,3px 5px;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 35%,#000 65%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 35%,#000 65%,transparent);opacity:.8}
+.bubble{position:absolute;bottom:-40px;display:inline-block;line-height:1;opacity:0;animation-timing-function:cubic-bezier(.3,.1,.6,1);animation-fill-mode:forwards}
+@keyframes rise-a{0%{transform:translate(0,0);opacity:0}15%{opacity:.9}50%{transform:translate(10px,-55vh) scaleY(1.8)}100%{transform:translate(-8px,-115vh) scaleY(1);opacity:0}}
+@keyframes rise-b{0%{transform:translate(0,0);opacity:0}15%{opacity:.9}50%{transform:translate(-12px,-50vh) scaleY(1.8)}100%{transform:translate(9px,-115vh) scaleY(1);opacity:0}}
 
-  /* Contact */
-  .contact .big {
-    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-    letter-spacing: -0.035em;
-    line-height: 1;
-    margin: 0 0 24px;
-    font-weight: 900;
-  }
-  .contact ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+/* ---------- drawer ---------- */
+.backdrop{position:fixed;inset:0;z-index:20;border:none;padding:0;background:rgba(8,3,15,.62);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .35s}
+.backdrop.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:30;width:min(600px,100%);background-color:var(--panel);background-image:radial-gradient(circle,rgba(244,211,224,.05) 1px,transparent 1.2px);background-size:4px 4px;border-left:2px solid var(--pc,var(--text));display:flex;flex-direction:column;transform:translateX(105%);visibility:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility .45s}
+.drawer.open{transform:translateX(0);visibility:visible}
+.d-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 24px;border-bottom:1px dashed var(--line)}
+.d-path{font-size:13px;color:var(--teal)}.d-path span{color:var(--text)}
+.close{width:44px;height:44px;border:1px solid var(--text);background:transparent;color:var(--text);cursor:pointer;font-size:18px}
+.close:hover{background:var(--text);color:var(--bg)}
+.d-band{background:var(--pc,var(--text));color:#1A0726;font-size:11px;letter-spacing:4px;padding:6px 24px;white-space:nowrap;overflow:hidden}
+.d-body{flex:1;overflow-y:auto;padding:28px 24px 48px;display:flex;flex-direction:column;gap:22px}
+.d-stars{font-size:11px;line-height:1.3;color:var(--faint)}
+.d-coords{font-size:11px;letter-spacing:3px;color:var(--pc,var(--text))}
+.d-title{margin:8px 0 0;font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.05}
+.panel{display:flex;flex-direction:column;gap:16px}
+.panel[hidden]{display:none}
+.lede{margin:0;font-size:14px;line-height:1.7;color:var(--muted)}
+.prose{margin:0;font-size:15px;line-height:1.8;color:var(--soft)}
+.crew{border:2px dashed var(--text);padding:24px;display:flex;flex-direction:column;gap:14px}
+.crew h3{margin:0;font-size:12px;font-weight:400;letter-spacing:3px;color:var(--accent-hi)}
+.crew dl{margin:0;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:12px 16px;font-size:14px;line-height:1.5}
+.crew dt{color:var(--muted)}.crew dd{margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tags span{padding:8px 12px;border:1px solid var(--text);font-size:13px}
+.tags .todo{border-style:dashed;border-color:var(--muted);color:var(--muted)}
+.card{padding:22px;display:flex;flex-direction:column;gap:10px}
+.card.inked{background:var(--text);color:#1A0726}
+.card.stencil{border:2px dashed var(--c)}
+.card.solid{border:2px solid var(--c)}
+.card .tag{font-size:11px;letter-spacing:2px}
+.card h3{margin:0;font-family:var(--display);font-weight:400;font-size:18px}
+.card p{margin:0;font-size:14px;line-height:1.6}
+.card.stencil p,.card.solid p{color:var(--soft)}
+.card .meta{font-size:11px;letter-spacing:2px}
+.card.stencil .meta,.card.solid .meta{color:var(--muted)}
+.card.empty{border:2px dashed var(--line);color:var(--muted)}
+.stamps{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+.stamp{aspect-ratio:1;border:2px dashed var(--orchid);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:16px}
+.stamp .iss{font-size:11px;letter-spacing:2px;color:var(--accent-hi)}
+.stamp strong{font-family:var(--display);font-weight:400;font-size:13px}
+.stamp .yr{font-size:11px;color:var(--muted)}
+.timeline{list-style:none;margin:0;padding:0 0 0 28px;border-left:2px dashed var(--text);display:flex;flex-direction:column;gap:32px}
+.timeline li{position:relative;display:flex;flex-direction:column;gap:6px}
+.timeline .node{position:absolute;border-radius:50%;border:3px solid var(--panel)}
+.timeline .when{font-size:12px;letter-spacing:3px}
+.timeline h3{margin:0;font-family:var(--display);font-weight:400;font-size:18px}
+.timeline p{margin:0;font-size:14px;line-height:1.7;color:var(--soft)}
+.term{display:flex;flex-direction:column;gap:14px;font-size:15px}
+.term p{margin:0;color:var(--soft)}
+.term .pr{color:var(--teal)}
+.term a{padding:8px 0}
+.cursor{background:var(--text);color:var(--bg)}
 
-  footer { padding: 32px 0 48px; color: var(--muted); font-size: 0.9rem; }
+/* no transitions on first paint, so the intro doesn't flash the orbit view */
+.preload .scene,.preload .intro{transition:none!important}
 
-  @media (max-width: 860px) {
-    .hero { grid-template-columns: 1fr; gap: 48px; padding: 40px 0 64px; }
-    .bars { height: 200px; }
-    .sec { grid-template-columns: 1fr; gap: 24px; }
-    section { padding: 60px 0; }
-  }
-  @media (max-width: 560px) {
-    .wrap { padding: 0 16px; }
-    nav ul { gap: 14px; font-size: 0.9rem; }
-    nav ul li.opt { display: none; }
-    ol.timeline li { grid-template-columns: 1fr; gap: 4px; }
-    .about p { font-size: 1.15rem; }
-  }
+@media (max-width:760px){
+  .ascii{font-size:1.5vw}
+  .sat{display:none!important}
+  .starmap{display:flex}
+  body{overflow:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  .tw,.reticle,.neb,.astro,.float,.flame,.bounce,.wobble{animation:none}
+  .bubble,.surface,.depth{display:none}
+  .scene,.intro{transition:opacity .3s}
+  .drawer,.backdrop{transition:none}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav aria-label="Main">
-    <a class="mark" href="#top">Joe Ong</a>
-    <ul>
-      <li class="opt"><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<div class="root preload" id="root">
 
-  <header class="hero" id="top">
-    <div>
-      <h1>Joe Ong <span>Teng Kiat</span></h1>
-      <p class="lede">Data Science &amp; AI student at NTU, building AI automation for a real e-commerce business.</p>
-      <div class="actions">
-        <a class="btn primary" href="#projects">See my projects</a>
-        <a class="btn" href="#contact">Get in touch</a>
+  <!-- background: halftone nebula + stars -->
+  <div class="bg nebula" aria-hidden="true">
+    <div class="neb neb-d" style="left:-12%;top:-20%;width:70%;height:120%"></div>
+    <div class="neb neb-a" style="left:30%;top:-10%;width:75%;height:110%;animation-delay:-12s"></div>
+    <div class="neb neb-b" style="left:44%;top:10%;width:50%;height:80%;animation-delay:-20s;animation-duration:46s"></div>
+    <div class="neb neb-c" style="left:52%;top:26%;width:30%;height:48%;animation-delay:-6s;animation-duration:30s"></div>
+    <div class="neb neb-b" style="left:-6%;top:60%;width:34%;height:50%;opacity:.6;animation-delay:-28s"></div>
+  </div>
+  <div class="bg" id="stars" aria-hidden="true"></div>
+
+  <!-- the orbit view -->
+  <div class="scene" id="scene" style="opacity:0;transform:translateY(45vh) scale(0.9);filter:blur(10px);pointer-events:none">
+    <header class="topbar">
+      <button class="logo" id="logo" type="button" aria-label="Back to intro">JOE.OTK<span>*</span></button>
+      <nav class="navlinks" aria-label="Links">
+        <a href="#" id="resume">Résumé ↗</a>
+        <button class="btn" type="button" data-open="contact">Book a session</button>
+      </nav>
+    </header>
+
+    <main class="stage">
+      <h2 class="sr-only">Joe's orbit — pick a satellite to open a section</h2>
+      <div class="art" id="art">
+        <div class="halo" aria-hidden="true"></div>
+        <pre class="ascii spacer" id="spacer" aria-hidden="true"></pre>
+        <div id="ringBack" aria-hidden="true"></div>
+        <div class="occluder" aria-hidden="true"></div>
+        <pre class="ascii layer" id="planet" role="img" aria-label="A spinning ASCII planet with coloured craters, inside a rotating ring of symbols" style="z-index:4;color:var(--text)"></pre>
+        <div id="craters" aria-hidden="true"></div>
+        <div id="ringFront" aria-hidden="true"></div>
+        <div id="sats"></div>
       </div>
+
+      <nav class="starmap" aria-label="Sections">
+        <p>STAR MAP ▸ tap to open</p>
+        <div id="starmap"></div>
+      </nav>
+    </main>
+
+    <footer class="foot">
+      <span>01001010 01001111 01000101</span>
+      <span>© 2026 · joeongtengkiat.com</span>
+    </footer>
+  </div>
+
+  <!-- dive transition fx (filled by JS during the plunge) -->
+  <div class="dive" id="dive" aria-hidden="true" hidden></div>
+
+  <!-- intro -->
+  <section class="intro" id="intro" aria-label="Intro">
+    <span class="float rocket" aria-hidden="true"><pre style="color:var(--yellow);transform:translateX(-5px)">  /\</pre><pre style="color:var(--yellow)"> |==|
+ |  |
+/|__|\</pre><pre class="flame" style="color:var(--orange)"> '**'</pre></span>
+    <p class="boot">&gt; booting orbit.sys ......... ok</p>
+    <h1 class="hello">HI, I'M <span>JOE.</span></h1>
+    <p class="degree">Year 2 · Data Science &amp; Artificial Intelligence · NTU</p>
+    <p class="tagline">I build things, ink them in ASCII, and launch them into orbit.</p>
+    <button class="btn launch" id="launch" type="button">Scroll to launch <span class="bounce" aria-hidden="true">↓</span></button>
+    <p class="bin" aria-hidden="true">01001010 01001111 01000101</p>
+  </section>
+
+  <!-- sidebar -->
+  <button class="backdrop" id="backdrop" type="button" aria-label="Close panel" tabindex="-1"></button>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+    <div class="d-head">
+      <span class="d-path">joe@orbit:<b id="dPath" style="font-weight:400">~</b>$ <span>cat</span></span>
+      <button class="close" id="dClose" type="button" aria-label="Close panel">✕</button>
     </div>
-
-    <figure class="sort" aria-label="Animated bar chart being sorted by a hybrid merge and insertion sort">
-      <div class="bars" id="bars" aria-hidden="true"></div>
-      <figcaption>
-        <span id="sortNote">Hybrid merge sort that hands short runs to insertion sort, from my SC2001 algorithms project.</span>
-        <button type="button" id="resort">Shuffle and sort</button>
-      </figcaption>
-    </figure>
-  </header>
-
-  <section id="about" class="about">
-    <div class="sec">
-      <h2>About</h2>
+    <div class="d-band" aria-hidden="true">01001010 01001111 01000101 ✕ 01001111 01001110 01000111 ✕ 01001010 01001111 01000101 ✕ 01001111 01001110 01000111</div>
+    <div class="d-body">
+      <pre class="d-stars" aria-hidden="true"> .   *    .   +      .    *   .    +   .
+    .   +    *    .      +     .   *</pre>
       <div>
-        <p>I like turning messy, repetitive work into systems that run on their own.</p>
-        <p>I'm a second-year Bachelor of Data Science and Artificial Intelligence student at Nanyang Technological University, graduating in 2029. Outside class I intern at Nook Theory, where I build AI-driven automation for their Amazon storefront, and I help run events for the NTU Sports Club.</p>
+        <span class="d-coords" id="dCoords"></span>
+        <h2 class="d-title" id="dTitle"></h2>
       </div>
-    </div>
-  </section>
 
-  <section id="experience">
-    <div class="sec">
-      <h2>Experience</h2>
-      <ol class="timeline">
-        <li>
-          <div class="when">Aug 2026 – now</div>
-          <div>
-            <h3>AI Intern</h3>
-            <p class="org">Nook Theory, Amazon seller</p>
-            <p class="desc">Automating business workflows with AI for a brand selling home, travel and lifestyle products. Building a recurring listing audit that benchmarks listings against competitors and flags which ones convert well enough to put ad spend behind.</p>
+      <!-- ABOUT -->
+      <section class="panel" data-panel="about" hidden>
+        <p class="prose">Half code, half ink. I'm a Data Science &amp; AI student at NTU who likes building stuff people actually use. By day I automate the boring parts of an Amazon business; by night I'm deep in algorithms, databases and probability homework. [ADD A LINE ABOUT WHAT YOU'RE INTO OUTSIDE SCHOOL]</p>
+        <div class="crew">
+          <h3>SHIP'S LOG ▸ CREW FILE</h3>
+          <dl>
+            <dt>NAME</dt><dd>Joe Ong Teng Kiat</dd>
+            <dt>BASE</dt><dd>NTU · Data Science &amp; AI</dd>
+            <dt>ETA</dt><dd>Graduating Apr 2029</dd>
+            <dt>CURRENT MISSION</dt><dd>AI Intern @ Nook Theory</dd>
+            <dt>SIDE QUEST</dt><dd>NTU Sports Club</dd>
+            <dt>FUEL</dt><dd>[YOUR FAVOURITE DRINK]</dd>
+          </dl>
+        </div>
+        <div class="tags">
+          <span>Python</span><span>SQL</span><span>Algorithms</span><span>Probability</span><span>Automation</span><span class="todo">[ADD SKILL]</span>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="panel" data-panel="projects" hidden>
+        <p class="lede">Each one is a green crater on the planet. Solid = shipped, dashed = coursework.</p>
+        <article class="card inked">
+          <span class="tag" style="color:#1F7A45">● CRATER G-01</span>
+          <h3>Ink &amp; Orbit</h3>
+          <p>This portfolio — a spinning ASCII planet, deployed on Vercel.</p>
+          <span class="meta">PERSONAL · WEB</span>
+        </article>
+        <article class="card inked">
+          <span class="tag" style="color:#1F7A45">● CRATER G-02</span>
+          <h3>SportsBash26</h3>
+          <p>Website and sign-ups for the NTU Sports Club Ball 2026.</p>
+          <span class="meta">EVENT · WEB</span>
+        </article>
+        <article class="card stencil" style="--c:var(--green)">
+          <span class="tag" style="color:var(--green)">● CRATER G-03</span>
+          <h3>Hybrid Sort</h3>
+          <p>Merge sort meets insertion sort — finding the threshold where switching pays off.</p>
+          <span class="meta">SC2001 · ALGORITHMS</span>
+        </article>
+        <article class="card stencil" style="--c:var(--green)">
+          <span class="tag" style="color:var(--green)">● CRATER G-04</span>
+          <h3>Dijkstra, Two Ways</h3>
+          <p>Shortest paths with an array vs a heap — and when each one wins.</p>
+          <span class="meta">SC2001 · GRAPHS</span>
+        </article>
+        <article class="card stencil" style="--c:var(--green)">
+          <span class="tag" style="color:var(--green)">● CRATER G-05</span>
+          <h3>Unbounded Knapsack</h3>
+          <p>Dynamic programming: packing the most value into a bag you can refill forever.</p>
+          <span class="meta">SC2001 · DP</span>
+        </article>
+      </section>
+
+      <!-- HACKATHONS -->
+      <section class="panel" data-panel="hack" hidden>
+        <p class="lede">Mission patches from the space station — each a blue crater.</p>
+        <article class="card solid" style="--c:var(--blue)">
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+            <span class="tag" style="color:var(--blue)">● CRATER B-01 · HACK &amp; HIRE · 2026</span>
+            <span class="tag" style="color:var(--muted)">[RESULT / PLACING]</span>
           </div>
-        </li>
-        <li>
-          <div class="when">2026</div>
-          <div>
-            <h3>Organiser, SportsBash26</h3>
-            <p class="org">NTU Sports Club</p>
-            <p class="desc">Organised the club's annual ball, "A Never Ending Summer", including the event website and sign-ups for freshies, seniors, alumni and guests.</p>
-          </div>
-        </li>
-        <li>
-          <div class="when">2025 – 2029</div>
-          <div>
-            <h3>BSc Data Science &amp; Artificial Intelligence</h3>
-            <p class="org">Nanyang Technological University</p>
-            <p class="desc">Coursework includes algorithm design and analysis, and database systems.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
+          <pre aria-hidden="true" style="font-size:12px;line-height:1.25;color:var(--blue)">.:::.  .::.
+:::::::[x]::   plot #0042 ✓
+ ':::'  '::'</pre>
+          <h3>SystemEarth</h3>
+          <p>Plot-level geospatial screening for EUDR compliance.</p>
+          <span class="meta">GEOSPATIAL · TEAM</span>
+        </article>
+        <article class="card empty">
+          <span class="tag">[EVENT] · [YEAR]</span>
+          <h3>[NEXT HACKATHON]</h3>
+        </article>
+      </section>
 
-  <section id="projects">
-    <div class="sec">
-      <h2>Projects</h2>
-      <div class="projects">
-        <article class="project">
-          <h3>Plot-level EUDR compliance screening</h3>
-          <p class="ctx">SystemEarth Hack &amp; Hire challenge, team project</p>
-          <p class="desc">Designing a compact, query-efficient way to represent geospatial layers so individual farm plots can be screened against the EU Deforestation Regulation. Our showcase case is natural rubber supply chains.</p>
-          <ul class="tags"><li>Geospatial data</li><li>Python</li><li>Compliance</li></ul>
-        </article>
-        <article class="project">
-          <h3>Automated Amazon listing audit</h3>
-          <p class="ctx">Nook Theory</p>
-          <p class="desc">A recurring audit that compares each product listing with competitors, checks conversion, and recommends copy and image fixes, so the ads team only pushes listings that are ready.</p>
-          <ul class="tags"><li>LLM automation</li><li>E-commerce</li><li>Data analysis</li></ul>
-        </article>
-        <article class="project">
-          <h3>Hybrid merge–insertion sort</h3>
-          <p class="ctx">SC2001 Algorithm Design &amp; Analysis</p>
-          <p class="desc">Implemented and benchmarked a merge sort that switches to insertion sort below a threshold, measuring how the threshold affects key comparisons and runtime. The chart at the top of this page runs it.</p>
-          <ul class="tags"><li>Java</li><li>Algorithms</li><li>Benchmarking</li></ul>
-        </article>
-        <article class="project">
-          <h3>Relational database design</h3>
-          <p class="ctx">SC2207 Introduction to Databases, team project</p>
-          <p class="desc">Modelled a business domain from requirements to an ER diagram, documented assumptions, and normalised the schema to 3NF.</p>
-          <ul class="tags"><li>SQL</li><li>ER modelling</li><li>Normalisation</li></ul>
-        </article>
-        <article class="project">
-          <h3>SportsBash26 event site</h3>
-          <p class="ctx">NTU Sports Club</p>
-          <p class="desc">A summer-themed site for the club ball with a photo gallery of the featured couples and links to three separate sign-up forms.</p>
-          <ul class="tags"><li>Web</li><li>Design</li><li>Events</li></ul>
-        </article>
-      </div>
-    </div>
-  </section>
+      <!-- CERTIFICATIONS -->
+      <section class="panel" data-panel="certs" hidden>
+        <p class="lede">Stamps on the passport.</p>
+        <div class="stamps">
+          <div class="stamp"><span class="iss">[ISSUER]</span><strong>[CERT NAME]</strong><span class="yr">[YEAR]</span></div>
+          <div class="stamp"><span class="iss">[ISSUER]</span><strong>[CERT NAME]</strong><span class="yr">[YEAR]</span></div>
+          <div class="stamp"><span class="iss">[ISSUER]</span><strong>[CERT NAME]</strong><span class="yr">[YEAR]</span></div>
+        </div>
+      </section>
 
-  <section id="contact" class="contact">
-    <div class="sec">
-      <h2>Contact</h2>
-      <div>
-        <p class="big">Let's build something useful.</p>
-        <ul>
-          <!-- TODO: replace with your real details -->
-          <li><a class="btn primary" href="mailto:hello@joeongtengkiat.com">Email me</a></li>
-          <li><a class="btn" href="https://www.linkedin.com/" rel="noopener">LinkedIn</a></li>
-          <li><a class="btn" href="https://github.com/" rel="noopener">GitHub</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      <!-- EXPERIENCE -->
+      <section class="panel" data-panel="exp" hidden>
+        <ol class="timeline">
+          <li>
+            <span class="node" aria-hidden="true" style="left:-41px;top:2px;width:22px;height:22px;background:var(--yellow)"></span>
+            <span class="when" style="color:var(--yellow)">● CRATER Y-01 · AUG 2026 → NOW</span>
+            <h3>AI Intern · Nook Theory</h3>
+            <p>Business automation for an Amazon seller — including a listing audit bot for competitor comparison, conversion checks and image fixes.</p>
+          </li>
+          <li>
+            <span class="node" aria-hidden="true" style="left:-39px;top:4px;width:18px;height:18px;background:var(--teal)"></span>
+            <span class="when" style="color:var(--teal)">2026</span>
+            <h3>Organiser · NTU Sports Club</h3>
+            <p>Organising SportsBash26, the club's annual ball — theme, sign-ups and the website.</p>
+          </li>
+          <li>
+            <span class="node" aria-hidden="true" style="left:-37px;top:6px;width:14px;height:14px;background:var(--text)"></span>
+            <span class="when" style="color:var(--muted)">[START YEAR] → APR 2029</span>
+            <h3>B.Sc. Data Science &amp; AI · NTU</h3>
+            <p>Algorithms, databases, probability — and a lot of group projects.</p>
+          </li>
+        </ol>
+      </section>
 
-  <footer>© 2026 Joe Ong Teng Kiat</footer>
+      <!-- CONTACT -->
+      <section class="panel term" data-panel="contact" hidden>
+        <p><span class="pr">joe@orbit:~$</span> ./book --walk-ins-welcome</p>
+        <a href="mailto:[YOUR EMAIL]">&gt; email ......... [YOUR EMAIL]</a>
+        <a href="https://github.com/Joeongtengkiat" target="_blank" rel="noopener">&gt; github ........ /Joeongtengkiat</a>
+        <a href="#">&gt; linkedin ...... [YOUR LINKEDIN]</a>
+        <p style="color:var(--muted)"><span class="pr">joe@orbit:~$</span> <span class="cursor">_</span></p>
+      </section>
+    </div>
+  </aside>
 </div>
 
 <script>
 (function () {
-  const N = 32, THRESHOLD = 6, STEP_MS = 22;
-  const barsEl = document.getElementById('bars');
-  const btn = document.getElementById('resort');
-  const note = document.getElementById('sortNote');
-  const baseNote = note.textContent;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let bars = [], timer = null;
+  'use strict';
 
-  for (let i = 0; i < N; i++) {
-    const d = document.createElement('div');
-    barsEl.appendChild(d);
-    bars.push(d);
+  // ---------- config ----------
+  var GRID_W = 100, GRID_H = 36, CX = GRID_W / 2, CY = GRID_H / 2, R = 12.5;
+  var SPIN_SPEED = 1, ORBIT_SPEED = 1;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // crater colours: 0 project, 1 hackathon, 2 internship, 3 plain
+  var CRATER_COLORS = ['#5BE38A', '#6FB6FF', '#FFD449', '#9C7FA8'];
+  // [longitude, latitude, radius (rad), type]
+  var CRATERS = [
+    [0.3, 0.4, 0.27, 0], [1.5, -0.25, 0.22, 0], [2.6, 0.55, 0.2, 0], [4.0, -0.5, 0.21, 0], [5.4, 0.15, 0.24, 0],
+    [3.35, 0.08, 0.31, 1],
+    [0.95, -0.62, 0.25, 2],
+    [2.1, 0.05, 0.12, 3], [4.75, 0.62, 0.14, 3], [5.95, -0.38, 0.13, 3]
+  ];
+  var RING_BANDS = [1.36, 1.43, 1.51, 1.58, 1.66, 1.73, 1.81, 1.88];
+  var RING_COLORS = ['#FFB15C', '#F4D3E0', '#D88BCB', '#4FD1C5'];
+  var RING_SYM = '*+x#=~<>$&%@o{}[]^:;';
+
+  var PANELS = {
+    about:    { label: 'about_me',       hint: 'the astronaut', title: 'About me',          path: '~/about',       kind: 'astro',   color: '#F4D3E0' },
+    projects: { label: 'projects',       hint: 'green world',   title: 'Personal projects', path: '~/projects',    kind: 'ringed',  color: '#5BE38A' },
+    hack:     { label: 'hackathons',     hint: 'blue station',  title: 'Hackathons',        path: '~/hackathons',  kind: 'station', color: '#6FB6FF' },
+    certs:    { label: 'certifications', hint: 'orchid world',  title: 'Certifications',    path: '~/certs',       kind: 'orchid',  color: '#D88BCB' },
+    exp:      { label: 'experience',     hint: 'the rocket',    title: 'Experience',        path: '~/experience',  kind: 'rocket',  color: '#FFD449' },
+    contact:  { label: 'contact',        hint: '',              title: 'Book a session',    path: '~/contact',     kind: '',        color: '#4FD1C5' }
+  };
+  var ORDER = ['about', 'projects', 'hack', 'certs', 'exp'];
+
+  // ---------- seeded random ----------
+  var seed = 20261027;
+  function rnd() {
+    seed = (seed + 0x6D2B79F5) | 0;
+    var x = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x;
+    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
   }
+  function pick(a) { return a[Math.floor(rnd() * a.length)]; }
+  function $(id) { return document.getElementById(id); }
 
-  function shuffled() {
-    const a = Array.from({ length: N }, (_, i) => i + 1);
-    for (let i = N - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
+  // ---------- stars ----------
+  (function makeStars() {
+    var host = $('stars'), frag = document.createDocumentFragment();
+    var chars = ['·', '·', '·', '.', '+', '*', '·', '+', '.'];
+    var colors = ['#F4D3E0', '#F4D3E0', '#FFFFFF', '#E39AD3', '#4FD1C5', '#FFB15C'];
+    for (var i = 0; i < 170; i++) {
+      var s = document.createElement('span');
+      s.className = 'star';
+      s.style.cssText = 'top:' + (rnd() * 100).toFixed(2) + '%;left:' + (rnd() * 100).toFixed(2) + '%;opacity:' +
+        (0.4 + rnd() * 0.6).toFixed(2) + ';font-size:' + Math.round(8 + rnd() * 12) + 'px;color:' + pick(colors);
+      var t = document.createElement('span');
+      t.className = 'tw';
+      t.style.animationDelay = (rnd() * 6).toFixed(2) + 's';
+      t.style.animationDuration = (2 + rnd() * 4).toFixed(2) + 's';
+      t.textContent = pick(chars);
+      s.appendChild(t);
+      frag.appendChild(s);
     }
-    return a;
-  }
+    for (var j = 0; j < 12; j++) {
+      var h = document.createElement('span');
+      var size = Math.round(14 + rnd() * 24);
+      h.className = 'hstar tw';
+      h.style.cssText = 'top:' + (rnd() * 100).toFixed(2) + '%;left:' + (rnd() * 100).toFixed(2) + '%;width:' + size +
+        'px;height:' + size + 'px;animation-delay:' + (rnd() * 5).toFixed(2) + 's';
+      frag.appendChild(h);
+    }
+    host.appendChild(frag);
+  })();
 
-  function hybridSortOps(a) {
-    const ops = [];
-    function insertion(lo, hi) {
-      for (let i = lo + 1; i <= hi; i++) {
-        const v = a[i];
-        let j = i - 1;
-        while (j >= lo && a[j] > v) { a[j + 1] = a[j]; ops.push([j + 1, a[j]]); j--; }
-        a[j + 1] = v; ops.push([j + 1, v]);
+  // ---------- planet layers ----------
+  var spacerRow = new Array(GRID_W + 1).join(' ');
+  var spacerRows = [];
+  for (var sr = 0; sr < GRID_H; sr++) spacerRows.push(spacerRow);
+  $('spacer').textContent = spacerRows.join('\n');
+
+  function makeLayers(hostId, colors, z, opacity) {
+    var host = $(hostId);
+    return colors.map(function (c) {
+      var p = document.createElement('pre');
+      p.className = 'ascii layer';
+      p.style.cssText = 'z-index:' + z + ';color:' + c + (opacity ? ';opacity:' + opacity : '');
+      host.appendChild(p);
+      return p;
+    });
+  }
+  var backEls = makeLayers('ringBack', RING_COLORS, 1, 0.45);
+  var craterEls = makeLayers('craters', CRATER_COLORS, 5);
+  var frontEls = makeLayers('ringFront', RING_COLORS, 6);
+  var planetEl = $('planet');
+
+  function grid() {
+    var g = [];
+    for (var y = 0; y < GRID_H; y++) {
+      var row = [];
+      for (var x = 0; x < GRID_W; x++) row.push(' ');
+      g.push(row);
+    }
+    return g;
+  }
+  function join(g) { return g.map(function (r) { return r.join(''); }).join('\n'); }
+
+  var BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+  var RAMP = ' .·:o0@', FLOOR = ' .:+x#%';
+  var L = (function () { var lx = -0.55, ly = -0.45, lz = 0.7, n = Math.hypot(lx, ly, lz); return [lx / n, ly / n, lz / n]; })();
+
+  function renderPlanet(spin) {
+    var body = grid();
+    var crat = CRATER_COLORS.map(grid);
+    var front = RING_COLORS.map(grid), back = RING_COLORS.map(grid);
+    var depth = new Float32Array(GRID_W * GRID_H).fill(-9);
+    var x, y, k, q;
+
+    for (y = 0; y < GRID_H; y++) {
+      for (x = 0; x < GRID_W; x++) {
+        var nx = (x + 0.5 - CX) / (2 * R), ny = (y + 0.5 - CY) / R, rr = nx * nx + ny * ny;
+        if (rr > 1) continue;
+        var nz = Math.sqrt(1 - rr);
+        depth[y * GRID_W + x] = nz;
+        var lat = Math.asin(-ny), lon = Math.atan2(nx, nz) + spin;
+        var b = nx * L[0] + ny * L[1] + nz * L[2];
+        var dith = (BAYER[(y % 4) * 4 + (x % 4)] / 16 - 0.5) * 0.22;
+        var v = Math.max(0, Math.min(0.999, (b + 0.25) / 1.15 + dith));
+        var hit = -1, hd = 0;
+        for (k = 0; k < CRATERS.length; k++) {
+          var c = CRATERS[k];
+          var cd = Math.sin(lat) * Math.sin(c[1]) + Math.cos(lat) * Math.cos(c[1]) * Math.cos(lon - c[0]);
+          var ang = Math.acos(Math.max(-1, Math.min(1, cd)));
+          if (ang < c[2]) { hit = c[3]; hd = ang / c[2]; break; }
+        }
+        if (hit >= 0) {
+          crat[hit][y][x] = hd > 0.72 ? (v > 0.35 ? 'O' : 'o')
+            : FLOOR[Math.max(1, Math.min(FLOOR.length - 1, Math.floor((0.25 + v * 0.75) * FLOOR.length)))];
+        } else {
+          var ch = RAMP[Math.floor(v * RAMP.length)];
+          if (ch === ' ' && rr > 0.9) ch = '.';
+          body[y][x] = ch;
+        }
       }
     }
-    function sort(lo, hi) {
-      if (hi - lo + 1 <= THRESHOLD) { insertion(lo, hi); return; }
-      const mid = (lo + hi) >> 1;
-      sort(lo, mid); sort(mid + 1, hi);
-      const L = a.slice(lo, mid + 1), R = a.slice(mid + 1, hi + 1);
-      let i = 0, j = 0, k = lo;
-      while (i < L.length && j < R.length) { a[k] = L[i] <= R[j] ? L[i++] : R[j++]; ops.push([k, a[k]]); k++; }
-      while (i < L.length) { a[k] = L[i++]; ops.push([k, a[k]]); k++; }
-      while (j < R.length) { a[k] = R[j++]; ops.push([k, a[k]]); k++; }
-    }
-    sort(0, a.length - 1);
-    return ops;
-  }
 
-  function draw(a) {
-    a.forEach((v, i) => { bars[i].style.height = (v / N * 100) + '%'; });
-  }
-
-  function run() {
-    clearTimeout(timer);
-    bars.forEach(b => b.className = '');
-    const start = shuffled();
-    if (reduce) {
-      draw(start.slice().sort((x, y) => x - y));
-      return;
-    }
-    draw(start);
-    const ops = hybridSortOps(start.slice());
-    btn.disabled = true;
-    note.textContent = baseNote;
-    let k = 0, last = null;
-    (function tick() {
-      if (last !== null) bars[last].classList.remove('hot');
-      if (k >= ops.length) {
-        bars.forEach((b, i) => setTimeout(() => b.classList.add('done'), i * 14));
-        note.textContent = 'Sorted ' + N + ' values in ' + ops.length + ' array writes.';
-        btn.disabled = false;
-        return;
+    var ta = 0.36, tb = -0.28, sa = Math.sin(ta), ca = Math.cos(ta), sb = Math.sin(tb), cb = Math.cos(tb);
+    var rdepth = new Float32Array(GRID_W * GRID_H).fill(-9);
+    for (var bi = 0; bi < RING_BANDS.length; bi++) {
+      var r = RING_BANDS[bi], N = 150 + bi * 14, ci = Math.floor(bi / 2);
+      for (var i = 0; i < N; i++) {
+        if ((i * 13 + bi * 7) % 11 === 0) continue;
+        var ph = (2 * Math.PI * i) / N + spin;
+        var x1 = r * Math.cos(ph), y1 = r * Math.sin(ph) * sa, z1 = r * Math.sin(ph) * ca;
+        var x2 = x1 * cb - y1 * sb, y2 = x1 * sb + y1 * cb;
+        var col = Math.floor(CX + x2 * 2 * R), row = Math.floor(CY + y2 * R);
+        if (col < 0 || col >= GRID_W || row < 0 || row >= GRID_H) continue;
+        var idx = row * GRID_W + col;
+        if (z1 <= depth[idx] || z1 < rdepth[idx]) continue;
+        rdepth[idx] = z1;
+        var sym = RING_SYM[(i * 5 + bi * 3) % RING_SYM.length];
+        for (q = 0; q < RING_COLORS.length; q++) { front[q][row][col] = ' '; back[q][row][col] = ' '; }
+        if (z1 >= 0) {
+          front[ci][row][col] = sym;
+          body[row][col] = ' ';
+          for (q = 0; q < crat.length; q++) crat[q][row][col] = ' ';
+        } else {
+          back[ci][row][col] = sym;
+        }
       }
-      const [idx, val] = ops[k++];
-      bars[idx].style.height = (val / N * 100) + '%';
-      bars[idx].classList.add('hot');
-      last = idx;
-      timer = setTimeout(tick, STEP_MS);
-    })();
+    }
+
+    planetEl.textContent = join(body);
+    for (q = 0; q < crat.length; q++) craterEls[q].textContent = join(crat[q]);
+    for (q = 0; q < RING_COLORS.length; q++) { frontEls[q].textContent = join(front[q]); backEls[q].textContent = join(back[q]); }
   }
 
-  btn.addEventListener('click', run);
-  draw(shuffled());
-  timer = setTimeout(run, reduce ? 0 : 700);
+  // ---------- satellites ----------
+  var ICONS = {
+    astro: '<span class="float"><pre class="astro">  .---.\n | [_] |\n  \'---\'\n /|   |\\\n  |___|\n  /   \\</pre></span>',
+    ringed: '<span class="hs hs-green" style="width:42px;height:42px"></span><span class="mini-ring"></span>',
+    station: '<pre style="font-size:11px;line-height:1.15;color:#6FB6FF">  _|_\n[##(o)##]\n   |</pre>',
+    orchid: '<span class="hs hs-orchid" style="width:50px;height:50px"></span><span style="position:absolute;right:6px;top:4px;font-size:14px">*</span>',
+    rocket: '<span class="float"><pre style="font-size:10px;line-height:1.05;color:#FFD449;transform:translateX(-3px)">  /\\</pre>' +
+            '<pre style="font-size:10px;line-height:1.05;color:#FFD449"> |==|\n |  |\n/|__|\\</pre>' +
+            '<pre class="flame" style="font-size:10px;line-height:1.05;color:#FFB15C"> \'**\'</pre></span>'
+  };
+
+  var state = { t: 0, orb: 0, hover: null, open: null, stage: 'intro' };
+  var satEls = ORDER.map(function (id, i) {
+    var p = PANELS[id];
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'sat';
+    b.style.setProperty('--c', p.color);
+    b.setAttribute('data-open', id);
+    b.innerHTML = '<span class="sat-icon" aria-hidden="true"><span class="reticle"></span>' + ICONS[p.kind] + '</span>' +
+      '<span class="sat-label">[0' + (i + 1) + '] ' + p.label + '</span>';
+    b.addEventListener('mouseenter', function () { state.hover = id; });
+    b.addEventListener('mouseleave', function () { state.hover = null; });
+    b.addEventListener('focus', function () { state.hover = id; });
+    b.addEventListener('blur', function () { state.hover = null; });
+    $('sats').appendChild(b);
+    return b;
+  });
+
+  ORDER.forEach(function (id, i) {
+    var p = PANELS[id];
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'mi';
+    b.style.setProperty('--c', p.color);
+    b.setAttribute('data-open', id);
+    b.innerHTML = '<span class="dot" aria-hidden="true"></span><span class="num">[0' + (i + 1) + ']</span><span class="lbl">' +
+      p.label + '</span><span class="hint">' + p.hint + '</span>';
+    $('starmap').appendChild(b);
+  });
+
+  function placeSats() {
+    var r = 2.35, ta = 0.52, tb = -0.1, sa = Math.sin(ta), ca = Math.cos(ta), sb = Math.sin(tb), cb = Math.cos(tb);
+    var base = state.orb * 0.008 * ORBIT_SPEED;
+    ORDER.forEach(function (id, i) {
+      var ph = base + (i * 2 * Math.PI) / ORDER.length + 0.5;
+      var x1 = r * Math.cos(ph), y1 = r * Math.sin(ph) * sa, z1 = r * Math.sin(ph) * ca;
+      var x2 = x1 * cb - y1 * sb, y2 = x1 * sb + y1 * cb;
+      var hot = state.hover === id || state.open === id;
+      var dn = (z1 / r + 1) / 2;
+      var el = satEls[i];
+      el.style.left = (((CX + x2 * 2 * R) / GRID_W) * 100).toFixed(2) + '%';
+      el.style.top = (((CY + y2 * R) / GRID_H) * 100).toFixed(2) + '%';
+      el.style.zIndex = hot ? 12 : (z1 >= 0 ? 9 : 2);
+      el.style.transform = 'translate(-50%,-50%) scale(' + (hot ? 1.4 : 1.05 + 0.3 * dn).toFixed(3) + ')';
+      el.style.opacity = (hot ? 1 : 0.6 + 0.4 * dn).toFixed(2);
+      el.classList.toggle('hot', hot);
+    });
+  }
+
+  // ---------- drawer ----------
+  var drawer = $('drawer'), backdrop = $('backdrop'), lastFocus = null;
+  function openPanel(id) {
+    var p = PANELS[id];
+    if (!p) return;
+    lastFocus = document.activeElement;
+    state.open = id; state.hover = null;
+    var idx = ORDER.indexOf(id);
+    $('dTitle').textContent = p.title;
+    $('dPath').textContent = p.path;
+    $('dCoords').textContent = idx >= 0
+      ? 'ORBIT 0' + (idx + 1) + ' · ' + p.hint.toUpperCase() + ' · ' + (2.35 + idx * 0.41).toFixed(2) + ' AU'
+      : 'TRANSMISSION · OPEN CHANNEL';
+    drawer.style.setProperty('--pc', p.color);
+    Array.prototype.forEach.call(document.querySelectorAll('[data-panel]'), function (el) {
+      el.hidden = el.getAttribute('data-panel') !== id;
+    });
+    drawer.querySelector('.d-body').scrollTop = 0;
+    drawer.classList.add('open');
+    backdrop.classList.add('open');
+    $('scene').inert = true;
+    setTimeout(function () { $('dClose').focus(); }, 50);
+  }
+  function closePanel() {
+    if (!state.open) return;
+    state.open = null;
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    $('scene').inert = state.stage !== 'space';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('[data-open]');
+    if (t) { e.preventDefault(); openPanel(t.getAttribute('data-open')); }
+  });
+  $('dClose').addEventListener('click', closePanel);
+  backdrop.addEventListener('click', closePanel);
+  $('resume').addEventListener('click', function (e) { if ($('resume').getAttribute('href') === '#') e.preventDefault(); });
+
+  // ---------- intro -> orbit (the dive) ----------
+  var scene = $('scene'), intro = $('intro'), dive = $('dive');
+  var lockUntil = 0, stageTimer = null;
+
+  function applyStage() {
+    var s = state.stage;
+    scene.style.transform = s === 'intro' ? 'translateY(45vh) scale(0.9)' : 'translateY(0) scale(1)';
+    scene.style.filter = s === 'intro' ? 'blur(10px)' : 'blur(0px)';
+    scene.style.opacity = s === 'intro' ? 0 : 1;
+    scene.style.pointerEvents = s === 'space' ? 'auto' : 'none';
+    scene.inert = s !== 'space';
+    intro.style.transform = s === 'intro' ? 'translateY(0)' : 'translateY(-70vh)';
+    intro.style.filter = s === 'intro' ? 'blur(0px)' : 'blur(8px)';
+    intro.style.opacity = s === 'intro' ? 1 : 0;
+    intro.style.pointerEvents = s === 'intro' ? 'auto' : 'none';
+    intro.inert = s !== 'intro';
+  }
+
+  function buildDive() {
+    var dust1 = new Array(21).join('·   *     .   +    ·   ');
+    var dust2 = new Array(21).join('   +   ·    *   .      ');
+    var dust = dust1 + '\n' + dust2;
+    var html = '<div class="depth"></div><div class="surface"><div class="wobble">' +
+      '<pre class="dust" style="color:#F4D3E0">' + dust + '</pre><div class="cloud"></div>' +
+      '<pre class="dust" style="color:#4FD1C5">' + dust + '</pre></div></div>';
+    var chars = ['*', '+', '·', '.', '*', '+', '|', ':'];
+    var cols = ['#F4D3E0', '#FFFFFF', '#E39AD3', '#C474B4', '#4FD1C5', '#FFB15C'];
+    for (var i = 0; i < 70; i++) {
+      html += '<span class="bubble" style="left:' + (Math.random() * 100).toFixed(2) + '%;font-size:' + Math.round(10 + Math.random() * 20) +
+        'px;color:' + cols[Math.floor(Math.random() * cols.length)] + ';animation-name:' + (Math.random() < 0.5 ? 'rise-a' : 'rise-b') +
+        ';animation-delay:' + (Math.random() * 0.5).toFixed(2) + 's;animation-duration:' + (1.1 + Math.random() * 0.7).toFixed(2) + 's">' +
+        chars[Math.floor(Math.random() * chars.length)] + '</span>';
+    }
+    dive.innerHTML = html;
+    dive.hidden = false;
+  }
+
+  function launch() {
+    if (state.stage !== 'intro' || Date.now() < lockUntil) return;
+    lockUntil = Date.now() + 2600;
+    state.stage = 'plunge';
+    if (!reduceMotion) buildDive();
+    applyStage();
+    clearTimeout(stageTimer);
+    stageTimer = setTimeout(function () {
+      state.stage = 'space';
+      dive.hidden = true; dive.innerHTML = '';
+      applyStage();
+      var first = satEls[0];
+      if (document.activeElement === $('launch') && first) first.focus({ preventScroll: true });
+    }, reduceMotion ? 350 : 2500);
+  }
+  function back() {
+    if (state.stage !== 'space' || state.open || Date.now() < lockUntil) return;
+    lockUntil = Date.now() + 2600;
+    state.stage = 'intro'; state.hover = null;
+    applyStage();
+  }
+
+  $('launch').addEventListener('click', launch);
+  $('logo').addEventListener('click', back);
+
+  var isPhone = function () { return window.matchMedia('(max-width: 760px)').matches; };
+  window.addEventListener('wheel', function (e) {
+    if (state.open) return;
+    if (e.deltaY > 8) launch();
+    else if (e.deltaY < -8 && !isPhone()) back();
+  }, { passive: true });
+
+  var touchY = null;
+  window.addEventListener('touchstart', function (e) { touchY = e.touches[0] ? e.touches[0].clientY : null; }, { passive: true });
+  window.addEventListener('touchend', function (e) {
+    if (touchY == null || state.open) return;
+    var y = e.changedTouches[0] ? e.changedTouches[0].clientY : touchY;
+    var dy = touchY - y; touchY = null;
+    if (dy > 40) launch();
+    else if (dy < -40 && state.stage === 'space' && (document.scrollingElement || document.documentElement).scrollTop <= 0) back();
+  }, { passive: true });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && state.open) { closePanel(); return; }
+    if (state.open) return;
+    if (state.stage === 'intro' && (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ')) { e.preventDefault(); launch(); }
+    else if (state.stage === 'space' && (e.key === 'ArrowUp' || e.key === 'PageUp') && !isPhone()) { back(); }
+  });
+
+  // ---------- animation loop ----------
+  function tick() {
+    state.t += 1;
+    if (!state.hover) state.orb += 1;
+    renderPlanet(state.t * 0.035 * SPIN_SPEED);
+    placeSats();
+  }
+  applyStage();
+  requestAnimationFrame(function () { requestAnimationFrame(function () { $('root').classList.remove('preload'); }); });
+  tick();
+  if (!reduceMotion) {
+    var timer = setInterval(tick, 70);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { clearInterval(timer); timer = null; }
+      else if (!timer) { timer = setInterval(tick, 70); }
+    });
+  }
 })();
 </script>
 </body>
