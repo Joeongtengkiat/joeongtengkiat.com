@@ -210,7 +210,6 @@ pre{margin:0;font-family:var(--mono)}
     <header class="topbar">
       <button class="logo" id="logo" type="button" aria-label="Back to intro">JOE.OTK<span>*</span></button>
       <nav class="navlinks" aria-label="Links">
-        <a href="#" id="resume">Résumé ↗</a>
         <button class="btn" type="button" data-open="contact">Book a session</button>
       </nav>
     </header>
@@ -274,7 +273,7 @@ pre{margin:0;font-family:var(--mono)}
 
       <!-- ABOUT -->
       <section class="panel" data-panel="about" hidden>
-        <p class="prose">Half code, half ink. I'm a Data Science &amp; AI student at NTU who likes building stuff people actually use. By day I automate the boring parts of an Amazon business; by night I'm deep in algorithms, databases and probability homework. [ADD A LINE ABOUT WHAT YOU'RE INTO OUTSIDE SCHOOL]</p>
+        <p class="prose">Half code, half ink. I'm a Data Science &amp; AI student at NTU who likes building stuff people actually use. By day I automate the boring parts of an Amazon business; by night I'm deep in algorithms, databases and probability homework. Off-screen you'll find me doing arts and crafts, at the gym, or on the court for volleyball, frisbee and whatever other sport is going.</p>
         <div class="crew">
           <h3>SHIP'S LOG ▸ CREW FILE</h3>
           <dl>
@@ -283,11 +282,11 @@ pre{margin:0;font-family:var(--mono)}
             <dt>ETA</dt><dd>Graduating Apr 2029</dd>
             <dt>CURRENT MISSION</dt><dd>AI Intern @ Nook Theory</dd>
             <dt>SIDE QUEST</dt><dd>NTU Sports Club</dd>
-            <dt>FUEL</dt><dd>[YOUR FAVOURITE DRINK]</dd>
+            <dt>OFF-DUTY</dt><dd>Arts &amp; crafts · gym · volleyball · frisbee</dd>
           </dl>
         </div>
         <div class="tags">
-          <span>Python</span><span>SQL</span><span>Algorithms</span><span>Probability</span><span>Automation</span><span class="todo">[ADD SKILL]</span>
+          <span>Python</span><span>SQL</span><span>Algorithms</span><span>Probability</span><span>Automation</span>
         </div>
       </section>
 
@@ -332,7 +331,7 @@ pre{margin:0;font-family:var(--mono)}
         <article class="card solid" style="--c:var(--blue)">
           <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
             <span class="tag" style="color:var(--blue)">● CRATER B-01 · HACK &amp; HIRE · 2026</span>
-            <span class="tag" style="color:var(--muted)">[RESULT / PLACING]</span>
+            <span class="tag" style="color:var(--yellow)">★ 1ST PLACE · 13 TEAMS</span>
           </div>
           <pre aria-hidden="true" style="font-size:12px;line-height:1.25;color:var(--blue)">.:::.  .::.
 :::::::[x]::   plot #0042 ✓
@@ -342,8 +341,8 @@ pre{margin:0;font-family:var(--mono)}
           <span class="meta">GEOSPATIAL · TEAM</span>
         </article>
         <article class="card empty">
-          <span class="tag">[EVENT] · [YEAR]</span>
-          <h3>[NEXT HACKATHON]</h3>
+          <span class="tag">NEXT MISSION · LOADING...</span>
+          <h3>Patch slot open</h3>
         </article>
       </section>
 
@@ -351,9 +350,7 @@ pre{margin:0;font-family:var(--mono)}
       <section class="panel" data-panel="certs" hidden>
         <p class="lede">Stamps on the passport.</p>
         <div class="stamps">
-          <div class="stamp"><span class="iss">[ISSUER]</span><strong>[CERT NAME]</strong><span class="yr">[YEAR]</span></div>
-          <div class="stamp"><span class="iss">[ISSUER]</span><strong>[CERT NAME]</strong><span class="yr">[YEAR]</span></div>
-          <div class="stamp"><span class="iss">[ISSUER]</span><strong>[CERT NAME]</strong><span class="yr">[YEAR]</span></div>
+          <div class="stamp"><span class="iss">IN TRANSIT</span><strong>Stamps landing soon</strong><span class="yr">· · ·</span></div>
         </div>
       </section>
 
@@ -374,7 +371,7 @@ pre{margin:0;font-family:var(--mono)}
           </li>
           <li>
             <span class="node" aria-hidden="true" style="left:-37px;top:6px;width:14px;height:14px;background:var(--text)"></span>
-            <span class="when" style="color:var(--muted)">[START YEAR] → APR 2029</span>
+            <span class="when" style="color:var(--muted)">2025 → APR 2029</span>
             <h3>B.Sc. Data Science &amp; AI · NTU</h3>
             <p>Algorithms, databases, probability — and a lot of group projects.</p>
           </li>
@@ -384,9 +381,10 @@ pre{margin:0;font-family:var(--mono)}
       <!-- CONTACT -->
       <section class="panel term" data-panel="contact" hidden>
         <p><span class="pr">joe@orbit:~$</span> ./book --walk-ins-welcome</p>
-        <a href="mailto:[YOUR EMAIL]">&gt; email ......... [YOUR EMAIL]</a>
+        <a href="mailto:joeong2004@gmail.com">&gt; email ......... joeong2004@gmail.com</a>
+        <a href="mailto:JONG194@e.ntu.edu.sg">&gt; ntu mail ...... JONG194@e.ntu.edu.sg</a>
+        <a href="https://www.linkedin.com/in/joe-ong-teng-kiat-989b27404/" target="_blank" rel="noopener">&gt; linkedin ...... /joe-ong-teng-kiat</a>
         <a href="https://github.com/Joeongtengkiat" target="_blank" rel="noopener">&gt; github ........ /Joeongtengkiat</a>
-        <a href="#">&gt; linkedin ...... [YOUR LINKEDIN]</a>
         <p style="color:var(--muted)"><span class="pr">joe@orbit:~$</span> <span class="cursor">_</span></p>
       </section>
     </div>
@@ -664,7 +662,6 @@ pre{margin:0;font-family:var(--mono)}
   });
   $('dClose').addEventListener('click', closePanel);
   backdrop.addEventListener('click', closePanel);
-  $('resume').addEventListener('click', function (e) { if ($('resume').getAttribute('href') === '#') e.preventDefault(); });
 
   // ---------- intro -> orbit (the dive) ----------
   var scene = $('scene'), intro = $('intro'), dive = $('dive');
