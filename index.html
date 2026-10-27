@@ -577,8 +577,9 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
   });
 
   function placeSats() {
-    var r = 2.35, ta = 0.52, tb = -0.1, sa = Math.sin(ta), ca = Math.cos(ta), sb = Math.sin(tb), cb = Math.cos(tb);
-    var base = state.orb * 0.008 * ORBIT_SPEED;
+    // steep orbit: satellites swing up and over the planet (far, small), then come down towards you (near, big)
+    var r = 1.9, ta = 1.0, tb = -0.12, sa = Math.sin(ta), ca = Math.cos(ta), sb = Math.sin(tb), cb = Math.cos(tb);
+    var base = state.orb * 0.009 * ORBIT_SPEED;
     ORDER.forEach(function (id, i) {
       var ph = base + (i * 2 * Math.PI) / ORDER.length + 0.5;
       var x1 = r * Math.cos(ph), y1 = r * Math.sin(ph) * sa, z1 = r * Math.sin(ph) * ca;
@@ -588,9 +589,11 @@ a.card.inked:hover,a.card.inked:focus-visible{box-shadow:5px 5px 0 var(--green)}
       var el = satEls[i];
       el.style.left = (((CX + x2 * 2 * R) / GRID_W) * 100).toFixed(2) + '%';
       el.style.top = (((CY + y2 * R) / GRID_H) * 100).toFixed(2) + '%';
+      var persp = 0.55 + 0.95 * dn * dn;            // far ~0.55x, near ~1.5x
       el.style.zIndex = hot ? 12 : (z1 >= 0 ? 9 : 2);
-      el.style.transform = 'translate(-50%,-50%) scale(' + (hot ? 1.4 : 1.05 + 0.3 * dn).toFixed(3) + ')';
-      el.style.opacity = (hot ? 1 : 0.6 + 0.4 * dn).toFixed(2);
+      el.style.transform = 'translate(-50%,-50%) scale(' + (hot ? Math.max(1.4, persp + 0.15) : persp).toFixed(3) + ')';
+      el.style.opacity = (hot ? 1 : 0.4 + 0.6 * dn).toFixed(2);
+      el.style.filter = (!hot && dn < 0.35) ? 'blur(' + ((0.35 - dn) * 4).toFixed(2) + 'px)' : 'none';
       el.classList.toggle('hot', hot);
     });
   }
